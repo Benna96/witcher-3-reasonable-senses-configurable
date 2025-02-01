@@ -7,13 +7,38 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 ## Changes from predecessor
 
 - Glow for each supported type of object is configurable from a mod menu
+- Support herbs
+
+## Technical
+
+### Folder structure
+
+- `workspace` contains most content files.
+- `workspace_root` contains bin files & localization files.
+  - Localization files are much nicer to edit through a CSV than REDkit's Localized String Editor, imo.
+
+### Packing the mod
+
+The packed mod is in a `packed` folder. This folder is not included in the repo as it's not source assets.
+
+1. Pack `workspace` files with REDkit.
+   - Packs files, generates `metadata.store,`, copies them + loose files.
+     - *Note*: This clears the `packed` folder beforehand, at least when using REDkit. You'll have to do step 2 again afterwards.
+   - **Not required if** only non-packable files (like scripts) have been edited, those can be copied manually.
+   - Maybe WCCLite can be used, idk, haven't used it myself.
+2. Pack `workspace_root` by running `packroot.bat`.
+   - Copies files, then encodes localization inside the packed folder.
+  as the previously packed folder is cleared upon doing so.
+   - Copies all files & encodes localization files.
+3. Zip up the **contents** of `packed` to make an archive you can install from.
 
 ## Usage
 
 Install the mod as you would any other mod.
 I recommend using [The Witcher 3 Mod Manager](https://www.nexusmods.com/witcher3/mods/2678).
+- *Note*: The mod needs to be packed first, as it includes files that need to be in a bundle. I recommend downloading the mod from its Nexus Page.
 
 Ingame, go to Options, Mods, Reasonable Senses. Configure the options to your liking.
 - ***Important note:*** If your Mods menu has over 9 menus in it, the ones later in the list don't work due to engine limitations.  
 You'll need to install [Community Patch - Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) and edit `modReasonableSenses.xml` to put Reasonable Senses Configurable in a submenu, see description of [Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) for instructions.  
-Reasonable Senses Configurable supports whichever submenu you pick; I pick *Visual*, myself (and plan to ship a version of the mod already under it).
+Reasonable Senses Configurable supports whichever submenu you pick; I pick *Visuals and Graphics*, myself (and plan to ship a version of the mod already under it).

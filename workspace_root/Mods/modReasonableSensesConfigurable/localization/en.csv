@@ -1,0 +1,27 @@
+;meta[language=en]
+; id | key(hex) | key(str) | text
+;
+2113377000||panel_Mods|Mods
+2113377001||panel_rsense|Reasonable Senses
+;
+;---------------- Title, support Community Patch - Menu Strings ----------------
+2113377002||preset_Mods_rsense|Reasonable Senses
+2113377003||preset_Mods_alchemy_and_equipment_rsense|Reasonable Senses
+2113377004||preset_Mods_camera_rsense|Reasonable Senses
+2113377005||preset_Mods_characters_rsense|Reasonable Senses
+2113377006||preset_Mods_combat_rsense|Reasonable Senses
+2113377007||preset_Mods_gameplay_rsense|Reasonable Senses
+2113377008||preset_Mods_quests_and_adventures_rsense|Reasonable Senses
+2113377009||preset_Mods_user_interface_rsense|Reasonable Senses
+2113377010||preset_Mods_visuals_and_graphics_rsense|Reasonable Senses
+2113377011||preset_Mods_miscellaneous_rsense|Reasonable Senses
+;-------------------------------------------------------------------------------
+;
+;----------------------------------- Presets -----------------------------------
+2113377012||preset_value_rsense_authorPick|Author's Pick
+2113377013||preset_value_rsense_vanilla|Vanilla
+;-------------------------------------------------------------------------------
+;
+;----------------------------------- Options -----------------------------------
+2113377014||option_rsense_dummy|Dummy Option
+;-------------------------------------------------------------------------------

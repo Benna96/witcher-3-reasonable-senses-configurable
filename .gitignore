@@ -1,0 +1,6 @@
+# Source files only
+cooked/
+cookeddlc/
+logs/
+packed/
+publish/
