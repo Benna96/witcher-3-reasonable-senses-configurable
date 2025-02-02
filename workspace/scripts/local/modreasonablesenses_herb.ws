@@ -3,7 +3,7 @@
 
 @addMethod( W3Herb ) public function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
 {
-	if ( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'herbsGlow') == "false" )
+	if ( !theGame.GetRsenseStorage().herbsGlow )
 	{
 		return FMV_None;
 	}
@@ -15,7 +15,7 @@
 
 @addMethod( W3Herb ) public function GetFoliageFullEntry() : name
 {
-	if ( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'herbsGlow') == "false" )
+	if ( !theGame.GetRsenseStorage().herbsGlow )
 	{
 		return 'fullnoglow';
 	}
