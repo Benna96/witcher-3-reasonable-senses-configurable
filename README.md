@@ -13,13 +13,14 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 ### Mod structure, logic, notes
 
-- Configurability
-  - In each type's `OnSpawned` function, set `focusModeHighlight` to `FMV_None` instead of `FMV_Interactive` if the type's option is enabled
-    - Introduce this variable if it doesn't exist & make sure it's used where needed
+- General logic
+  - Calling `SetFocusModeVisibility` sets the visibility to `FMV_None` instead of `FMV_Interactive` if the type's option is enabled
+    - `GetFocusModeVisibility` is also modified to return the previously set visibility, to support code that uses the visibility for logic (e.g. All Containers Glow)
+    - Clue highlights *shouldn't* be affected
+    - ***Note***: `gameplayEntity.ws` changes aren't possible to do with annotations. They're super simple though & should automerge in the vast majority of cases.
 - Herb support
   - Make `_noglow` variants of herb `srt`s, where `InteractiveOn` string has been removed, & add an entry called `fullnoglow` to these in `w2sf` files
   - Use `fullnoglow` instead of `full` for `foliageComponent` when herb option is enabled
-    - *Note*: `container.ws` changes are not possible to do with annotations, as calling `foliageComponent.SetAndSaveEntry` after already calling it doesn't work, for some reason
 - Compatibility
   - Make as many changes as possible using [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations)
     - Not possible for everything, some scripts do need to be merged

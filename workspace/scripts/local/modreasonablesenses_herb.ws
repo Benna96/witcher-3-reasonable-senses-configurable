@@ -1,19 +1,26 @@
-/******************************************************************************/
-/** Depends on W3Container.UpdateContainer changes.
-/******************************************************************************/
+/* -------------------------- Override mod values --------------------------- */
+/*                             Used in _container                             */
 
-@wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
+@addMethod( W3Herb ) public function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
 {
 	if ( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'herbsGlow') == "false" )
 	{
-		focusModeHighlight = FMV_None;
-		foliageFullEntry = 'fullnoglow';
+		return FMV_None;
 	}
 	else
 	{
-		focusModeHighlight = FMV_Interactive;
-		foliageFullEntry = 'full';
+		return FMV_Interactive;
 	}
-	
-	wrappedMethod( spawnData );
+}
+
+@addMethod( W3Herb ) public function GetFoliageFullEntry() : name
+{
+	if ( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'herbsGlow') == "false" )
+	{
+		return 'fullnoglow';
+	}
+	else
+	{
+		return 'full';
+	}
 }
