@@ -15,8 +15,13 @@ private var rsenseStorage : CRsenseStorage;
 
 @wrapMethod( CR4IngameMenu ) function LoadSaveRequested(saveSlotRef : SSavegameInfo) : void
 {
-	theGame.GetRsenseStorage().UpdateValuesFromConfig();
+	theGame.GetRsenseStorage().ClearSensoryLists(); // OnSpawned is called on load & populates lists
 	wrappedMethod( saveSlotRef ); 
+}
+@wrapMethod( CR4CommonMainMenuBase ) function OnConfigUI()
+{
+	theGame.GetRsenseStorage().ClearSensoryLists(); // Doesn't matter much, cleared on LoadSave too
+	wrappedMethod();
 }
 
 class CRsenseStorage
@@ -24,6 +29,8 @@ class CRsenseStorage
 	private var config : CInGameConfigWrapper;
 
 	public var herbsGlow : bool;
+
+	public var herbs : array< W3Herb >;
 
 	public function Init()
 	{
@@ -41,5 +48,15 @@ class CRsenseStorage
 	public function UpdateValuesFromConfig()
 	{
 		herbsGlow = config.GetVarValue( 'ReasonableSenses', 'herbsGlow' );
+	}
+
+	public function ClearSensoryLists()
+	{
+		herbs.Clear();
+	}
+
+	public function HerbsGlowMatchesConfig() : bool
+	{
+		return (string)herbsGlow == theGame.GetInGameConfigWrapper().GetVarValue( 'ReasonableSenses', 'herbsGlow' );
 	}
 }

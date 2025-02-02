@@ -10,6 +10,8 @@
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
+			<Var id="applySettings" displayName="rsense_applySettings" displayType="TOGGLE"/>
+			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			<Var id="herbsGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
 		</VisibleVars>
 	</Group>

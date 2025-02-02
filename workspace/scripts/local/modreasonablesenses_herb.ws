@@ -1,9 +1,21 @@
+/* -------------------------------- Register -------------------------------- */
+
+@wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
+{
+	var storage : CRsenseStorage;
+	var herbs : array < W3Herb >;
+
+	storage = theGame.GetRsenseStorage();
+	storage.herbs.PushBack( this );
+	wrappedMethod( spawnData );
+}
+
 /* -------------------------- Override mod values --------------------------- */
 /*                             Used in _container                             */
 
 @addMethod( W3Herb ) public function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
 {
-	if ( !theGame.GetRsenseStorage().herbsGlow )
+	if ( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'herbsGlow') == "false" )
 	{
 		return FMV_None;
 	}
@@ -15,7 +27,7 @@
 
 @addMethod( W3Herb ) public function GetFoliageFullEntry() : name
 {
-	if ( !theGame.GetRsenseStorage().herbsGlow )
+	if ( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'herbsGlow') == "false" )
 	{
 		return 'fullnoglow';
 	}
