@@ -38,11 +38,10 @@ The packed mod is in a `packed` folder. This folder is not included in the repo 
 1. Pack `workspace` files with REDkit.
    - Packs files, generates `metadata.store,`, copies them + loose files.
      - *Note*: This clears the `packed` folder beforehand, at least when using REDkit. You'll have to do step 2 again afterwards.
-   - **Not required if** only non-packable files (like scripts) have been edited, those can be copied manually.
+   - **Not required if** only non-packable files (like scripts) have been edited, those can be copied on their own.
    - Maybe WCCLite can be used, idk, haven't used it myself.
 2. Pack `workspace_root` by running `packroot.bat`.
-   - Copies files, then encodes localization inside the packed folder.
-  as the previously packed folder is cleared upon doing so.
+   - Copies scripts from `workspace`.
    - Copies all files & encodes localization files.
 3. Zip up the **contents** of `packed` to make an archive you can install from.
 
