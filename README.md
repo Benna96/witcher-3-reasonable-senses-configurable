@@ -11,6 +11,19 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 ## Technical
 
+### Mod structure, logic, notes
+
+- Configurability
+  - In each type's `OnSpawned` function, set `focusModeHighlight` to `FMV_None` instead of `FMV_Interactive` if the type's option is enabled
+    - Introduce this variable if it doesn't exist & make sure it's used where needed
+- Herb support
+  - Make `_noglow` variants of herb `srt`s, where `InteractiveOn` string has been removed, & add an entry called `fullnoglow` to these in `w2sf` files
+  - Use `fullnoglow` instead of `full` for `foliageComponent` when herb option is enabled
+    - *Note*: `container.ws` changes are not possible to do with annotations, as calling `foliageComponent.SetAndSaveEntry` after already calling it doesn't work, for some reason
+- Compatibility
+  - Make as many changes as possible using [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations)
+    - Not possible for everything, some scripts do need to be merged
+
 ### Folder structure
 
 - `workspace` contains most content files.
@@ -42,3 +55,4 @@ Ingame, go to Options, Mods, Reasonable Senses. Configure the options to your li
 - ***Important note:*** If your Mods menu has over 9 menus in it, the ones later in the list don't work due to engine limitations.  
 You'll need to install [Community Patch - Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) and edit `modReasonableSenses.xml` to put Reasonable Senses Configurable in a submenu, see description of [Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) for instructions.  
 Reasonable Senses Configurable supports whichever submenu you pick; I pick *Visuals and Graphics*, myself (and plan to ship a version of the mod already under it).
+- ATM, you have to load a save after changing settings for them to apply.

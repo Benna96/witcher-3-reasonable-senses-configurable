@@ -3,14 +3,14 @@
 	<Group id="ReasonableSenses" displayName="Mods.rsense">
 		<PresetsArray>
 			<Preset id="0" displayName="rsense_authorPick">
-				<Entry varId="dummy" value="1"/>
+				<Entry varId="herbsGlow" value="0"/>
 			</Preset>
 			<Preset id="1" displayName="rsense_vanilla">
-				<Entry varId="dummy" value="0"/>
+				<Entry varId="herbsGlow" value="1"/>
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
-			<Var id="dummy" displayName="rsense_dummy" displayType="TOGGLE"/>
+			<Var id="herbsGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
 		</VisibleVars>
 	</Group>
 </UserConfig>
