@@ -1,9 +1,27 @@
+/* -------------------------------- Register -------------------------------- */
+
+@wrapMethod( W3Container ) function OnSpawned( spawnData : SEntitySpawnData )
+{
+	var storage : CRsenseStorage;
+
+	storage = theGame.GetRsenseStorage();
+	storage.containers.PushBack( this );
+	wrappedMethod( spawnData );
+}
+
 /* ------------------------------- Mod values ------------------------------- */
 /*              Getters make overriding easiest & ensure defaults             */
 
 @addMethod( W3Container ) public function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
 {
-	return FMV_Interactive;
+	if( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'containersGlow') == "false" )
+	{
+		return FMV_None;
+	}
+	else
+	{
+		return FMV_Interactive;
+	}
 }
 
 @addMethod( W3Container ) public function GetFoliageFullEntry() : name

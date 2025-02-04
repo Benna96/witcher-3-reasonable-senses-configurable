@@ -29,8 +29,10 @@ class CRsenseStorage
 	private var config : CInGameConfigWrapper;
 
 	public var herbsGlow : bool;
+	public var containersGlow : bool;
 
 	public var herbs : array< W3Herb >;
+	public var containers : array< W3Container >;
 
 	public function Init()
 	{
@@ -43,20 +45,29 @@ class CRsenseStorage
 	{
 		if( StrLen(config.GetVarValue( 'ReasonableSenses', 'herbsGlow' )) == 0 )
 			config.SetVarValue( 'ReasonableSenses', 'herbsGlow', "false" );
+		
+		if( StrLen(config.GetVarValue( 'ReasonableSenses', 'containersGlow' )) == 0 )
+			config.SetVarValue( 'ReasonableSenses', 'containersGlow', "false" );
 	}
 
 	public function UpdateValuesFromConfig()
 	{
 		herbsGlow = config.GetVarValue( 'ReasonableSenses', 'herbsGlow' );
+		containersGlow = config.GetVarValue( 'ReasonableSenses', 'containersGlow' );
 	}
 
 	public function ClearSensoryLists()
 	{
 		herbs.Clear();
+		containers.Clear();
 	}
 
 	public function HerbsGlowMatchesConfig() : bool
 	{
 		return (string)herbsGlow == theGame.GetInGameConfigWrapper().GetVarValue( 'ReasonableSenses', 'herbsGlow' );
+	}
+	public function ContainersGlowMatchesConfig() : bool
+	{
+		return (string)containersGlow == theGame.GetInGameConfigWrapper().GetVarValue( 'ReasonableSenses', 'containersGlow' );
 	}
 }

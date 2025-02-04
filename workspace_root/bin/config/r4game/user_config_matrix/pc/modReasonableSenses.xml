@@ -4,15 +4,18 @@
 		<PresetsArray>
 			<Preset id="0" displayName="rsense_authorPick">
 				<Entry varId="herbsGlow" value="false"/>
+				<Entry varId="containersGlow" value="false"/>
 			</Preset>
 			<Preset id="1" displayName="rsense_vanilla">
 				<Entry varId="herbsGlow" value="true"/>
+				<Entry varId="containersGlow" value="true"/>
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
 			<Var id="applySettings" displayName="rsense_applySettings" displayType="TOGGLE"/>
 			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			<Var id="herbsGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
+			<Var id="containersGlow" displayName="rsense_containersGlow" displayType="TOGGLE"/>
 		</VisibleVars>
 	</Group>
 </UserConfig>

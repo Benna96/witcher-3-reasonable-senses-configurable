@@ -23,6 +23,10 @@
 	{
 		Rsense_UpdateHerbsVisibility( storage );
 	}
+	if( !storage.ContainersGlowMatchesConfig() )
+	{
+		Rsense_UpdateContainersVisibility( storage );
+	}
 
 	theGame.GetInGameConfigWrapper().SetVarValue( 'ReasonableSenses', 'applySettings', "false" );
 	UpdateOptions( 'ReasonableSenses', false );
@@ -40,5 +44,16 @@
 	for ( i = 0; i < herbs.Size(); i += 1 )
 	{
 		herbs[ i ].RequestUpdateContainer(); // UpdateContainer updates focus visibility among other things
+	}
+}
+@addMethod( CR4IngameMenu ) private function Rsense_UpdateContainersVisibility( storage : CRsenseStorage )
+{
+	var i : int;
+	var containers : array < W3Container >;
+
+	containers = storage.containers;
+	for ( i = 0; i < containers.Size(); i += 1 )
+	{
+		containers[ i ].RequestUpdateContainer(); // UpdateContainer updates focus visibility among other things
 	}
 }
