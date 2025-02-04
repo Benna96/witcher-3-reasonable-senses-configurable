@@ -16,13 +16,14 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 ### Mod structure, logic, notes
 
 - General logic
-  - Calling `SetFocusModeVisibility` sets the visibility to `FMV_None` instead of `FMV_Interactive` if the type's option is enabled
-    - `GetFocusModeVisibility` is also modified to return the previously set visibility, to support code that uses the visibility for logic (e.g. All Containers Glow)
+  - Override `SetFocusModeVisibility` to maybe actually set to `FMV_None`, depending on active options
+    - `GetFocusModeVisibility` return the previously not-necessarily-set visibility to support code that uses the visibility for logic (e.g. All Containers Glow)
     - Clue highlights *shouldn't* be affected
     - ***Note***: `gameplayEntity.ws` changes aren't possible to do with annotations. They're super simple though & should automerge in the vast majority of cases.
+  - Each of the mod's options has a corresponding option class, all listed in `CRsenseConfig`; functionality is split between the option class & vanilla code injections
 - Herb support
-  - Make `_noglow` variants of herb `srt`s, where `InteractiveOn` string has been removed, & add an entry called `fullnoglow` to these in `w2sf` files
-  - Use `fullnoglow` instead of `full` for `foliageComponent` when herb option is enabled
+  - `_noglow` variants of herb `srt`s (removed `InteractiveOn` string), & an entry called `fullnoglow` to these in corresponding `w2sf` files
+  - Override `foliageComponent.SetAndSaveEntry` to maybe set it to `fullnoglow`, depending on active options
 - Compatibility
   - Make as many changes as possible using [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations)
     - Not possible for everything, some scripts do need to be merged

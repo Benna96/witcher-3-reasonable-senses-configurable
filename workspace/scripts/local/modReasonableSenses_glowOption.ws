@@ -1,0 +1,76 @@
+/* ----------------------- Base class for glow options ---------------------- */
+
+abstract class IRsenseGlowOption extends IRsenseOption
+{
+	protected var entities : array< CGameplayEntity >;
+
+	public final function RegisterEntity( entity : CGameplayEntity )
+	{
+		if( EnsureSupportedEntity( entity ) )
+		{
+			entities.PushBack( entity );
+		}
+	}
+
+	protected final /* override */ function Apply_Impl()
+	{
+		var i : int;
+
+		for( i = 0; i < entities.Size(); i += 1 )
+		{
+			if( EnsureSupportedEntity( entities[ i ] ) )
+			{
+				ApplyToEntity_Impl( entities[ i ] );
+			}
+		}
+	}
+
+	public final function ClearEntities()
+	{
+		entities.Clear();
+	}
+
+	protected final function EnsureSupportedEntity( entity : CGameplayEntity ) : bool // Using this instead of generics, don't want to write a bunch of code multiple times but do want some kind of safety...
+	{
+		var isSupported : bool;
+
+		isSupported = IsSupportedEntity( entity );
+		if( !isSupported)
+		{
+			LogChannel( 'ReasonableSenses', ToString() + ": Entity <<" + entity.ToString() + ">> is not supported" );
+		}
+
+		return isSupported;
+	}
+
+	protected function IsSupportedEntity( entity : CGameplayEntity ) : bool;
+	protected function ApplyToEntity_Impl( entity : CGameplayEntity );
+}
+
+/* ----------------------- Glow option state handling ----------------------- */
+
+@wrapMethod( CR4IngameMenu ) function LoadSaveRequested(saveSlotRef : SSavegameInfo) : void
+{
+	Rsense_ClearGlowOptionEntities();
+	wrappedMethod( saveSlotRef ); 
+}
+@wrapMethod( CR4CommonMainMenuBase ) function OnConfigUI()
+{
+	// Doesn't matter much, cleared in LoadSave too
+	// Just reduces unnecessary work when changing mod settings in main menu
+	Rsense_ClearGlowOptionEntities();
+	wrappedMethod();
+}
+
+function Rsense_ClearGlowOptionEntities()
+{
+	var options : array< IRsenseOption >;
+	var i : int;
+
+	options = theGame.GetRsenseConfig().GetAllOptions();
+	for( i = 0; i < options.Size(); i += 1 )
+	{
+		if( (IRsenseGlowOption)options[ i ] )
+			((IRsenseGlowOption)options[ i ]).ClearEntities();
+	}
+}

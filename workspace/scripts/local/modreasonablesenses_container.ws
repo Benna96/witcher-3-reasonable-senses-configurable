@@ -1,54 +1,46 @@
-/* -------------------------------- Register -------------------------------- */
+/* ------------------------------ Option class ------------------------------ */
+
+class CRsenseContainerGlowOption extends IRsenseGlowOption
+{
+	default xmlId = 'containersGlow';
+	default defaultValue = "false";
+
+	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
+	{
+		return (W3Container)entity;
+	}
+
+	protected /* override */ function ApplyToEntity_Impl( entity : CGameplayEntity )
+	{
+		((W3Container)entity).RequestUpdateContainer(); // UpdateContainer updates focus visibility among other things
+	}
+}
+
+/* ------------------------------ Registration ------------------------------ */
 
 @wrapMethod( W3Container ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	var storage : CRsenseStorage;
-
-	storage = theGame.GetRsenseStorage();
-	storage.containers.PushBack( this );
+	theGame.GetRsenseConfig().containerGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
 }
 
-/* ------------------------------- Mod values ------------------------------- */
-/*              Getters make overriding easiest & ensure defaults             */
+/* -------------------------- Visibility injection -------------------------- */
 
-@addMethod( W3Container ) public function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
-{
-	if( theGame.GetInGameConfigWrapper().GetVarValue('ReasonableSenses', 'containersGlow') == "false" )
-	{
-		return FMV_None;
-	}
-	else
-	{
-		return FMV_Interactive;
-	}
-}
-
-@addMethod( W3Container ) public function GetFoliageFullEntry() : name
-{
-	return 'full';
-}
-
-/* ---------------------- FocusModeVisibility overrides --------------------- */
-/*                        Depends on gamePlayEntity.ws                        */
-
+// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
 @addField( W3Container )
 private var cachedFocusModeVisiblity : EFocusModeVisibility;
-
-@addMethod( W3Container ) function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
+@addMethod( W3Container ) function /* override */ SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
+
 	if( focusModeVisibility == FMV_Interactive )
 	{
-		super.SetFocusModeVisibility( GetInteractiveFocusModeVisibility(), persistent, force );
+		focusModeVisibility = GetInteractiveFocusModeVisibility();
 	}
-	else
-	{
-		super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-	}
-}
 
-@addMethod( W3Container ) function GetFocusModeVisibility() : EFocusModeVisibility
+	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
+}
+@addMethod( W3Container ) function /* override */ GetFocusModeVisibility() : EFocusModeVisibility
 {
 	var superValue : EFocusModeVisibility;
 
@@ -66,20 +58,15 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 	}
 }
 
-/* ------------------------ SetAndSaveEntry override ------------------------ */
-
-@wrapMethod( CSwitchableFoliageComponent ) function SetAndSaveEntry( entryName : name )
+// Helper function needed because W3Herb has its own logic
+@addMethod( W3Container ) protected function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
 {
-	var container : W3Container;
-
-	if( entryName == 'full' )
+	if( !theGame.GetRsenseConfig().containerGlowOption.currentValue )
 	{
-		container = (W3Container)GetEntity();
-		if( container )
-		{
-			entryName = container.GetFoliageFullEntry();
-		}
+		return FMV_None;
 	}
-
-	wrappedMethod( entryName );
+	else
+	{
+		return FMV_Interactive;
+	}
 }

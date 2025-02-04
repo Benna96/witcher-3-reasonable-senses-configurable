@@ -1,59 +1,46 @@
-/* ------------------ Apply config settings without reload ------------------ */
+/* ------------------------------ Config class ------------------------------ */
 
-@wrapMethod( CR4IngameMenu ) function OnOptionValueChanged(groupId:int, optionName:name, optionValue:string)
+class CRsenseConfig
 {
-	var groupName : name;
+	private var options : array< IRsenseOption >;
+	public var applySettingsOption : CRsenseApplySettingsOption;
+	public var herbGlowOption : CRsenseHerbGlowOption;
+	public var containerGlowOption : CRsenseContainerGlowOption;
 
-	wrappedMethod( groupId, optionName, optionValue );
+	public function Init()
+	{
+		var i : int;
+
+		applySettingsOption = new CRsenseApplySettingsOption in this;
+		herbGlowOption = new CRsenseHerbGlowOption in this;
+		containerGlowOption = new CRsenseContainerGlowOption in this;
+
+		options.PushBack( applySettingsOption );
+		options.PushBack( herbGlowOption );
+		options.PushBack( containerGlowOption );
+		for( i = 0; i < options.Size(); i += 1 )
+		{
+			options[ i ].Init();
+		}
+	}
+
+	public function GetAllOptions() : array< IRsenseOption >
+	{
+		return options;
+	}
+}
+
+/* --------------------------------- Getter --------------------------------- */
+
+@addField( CR4Game )
+private var rsenseConfig : CRsenseConfig;
+@addMethod( CR4Game ) public function GetRsenseConfig() : CRsenseConfig
+{
+	if( !rsenseConfig )
+	{
+		rsenseConfig = new CRsenseConfig in this;
+		rsenseConfig.Init();
+	}
 	
-	groupName = mInGameConfigWrapper.GetGroupName(groupId);
-	if( groupName == 'ReasonableSenses' && optionName == 'applySettings' && optionValue == "true" )
-	{
-		Rsense_ApplyChangedSettings();
-	}
-}
-
-@addMethod( CR4IngameMenu ) private function Rsense_ApplyChangedSettings()
-{
-	var storage : CRsenseStorage;
-
-	storage = theGame.GetRsenseStorage();
-
-	if( !storage.HerbsGlowMatchesConfig() )
-	{
-		Rsense_UpdateHerbsVisibility( storage );
-	}
-	if( !storage.ContainersGlowMatchesConfig() )
-	{
-		Rsense_UpdateContainersVisibility( storage );
-	}
-
-	theGame.GetInGameConfigWrapper().SetVarValue( 'ReasonableSenses', 'applySettings', "false" );
-	UpdateOptions( 'ReasonableSenses', false );
-	storage.UpdateValuesFromConfig();
-
-	theGame.GetGuiManager().ShowNotification( "Reasonable Senses: Applied changed settings" );
-}
-
-@addMethod( CR4IngameMenu ) private function Rsense_UpdateHerbsVisibility( storage : CRsenseStorage )
-{
-	var i : int;
-	var herbs : array < W3Herb >;
-
-	herbs = storage.herbs;
-	for ( i = 0; i < herbs.Size(); i += 1 )
-	{
-		herbs[ i ].RequestUpdateContainer(); // UpdateContainer updates focus visibility among other things
-	}
-}
-@addMethod( CR4IngameMenu ) private function Rsense_UpdateContainersVisibility( storage : CRsenseStorage )
-{
-	var i : int;
-	var containers : array < W3Container >;
-
-	containers = storage.containers;
-	for ( i = 0; i < containers.Size(); i += 1 )
-	{
-		containers[ i ].RequestUpdateContainer(); // UpdateContainer updates focus visibility among other things
-	}
+	return rsenseConfig;
 }
