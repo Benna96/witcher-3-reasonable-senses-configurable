@@ -1,3 +1,6 @@
+// IMPORTANT: Both W3Door & W3NewDoor need support
+// Why there are 2 door classes I don't know
+
 /* ------------------------------ Option class ------------------------------ */
 
 class CRsenseDoorGlowOption extends IRsenseGlowOption
@@ -18,6 +21,7 @@ class CRsenseDoorGlowOption extends IRsenseGlowOption
 	theGame.GetRsenseConfig().doorGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
 }
+
 @wrapMethod( W3NewDoor ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	theGame.GetRsenseConfig().doorGlowOption.RegisterEntity( this );
@@ -40,7 +44,6 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
 }
 
-// Why there are 2 door classes I don't know...
 @addField( W3NewDoor )
 private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( W3NewDoor ) function /* override */ SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
