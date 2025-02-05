@@ -5,10 +5,12 @@
 			<Preset id="0" displayName="rsense_authorPick">
 				<Entry varId="herbsGlow" value="false"/>
 				<Entry varId="containersGlow" value="false"/>
+				<Entry varId="doorsGlow" value="false"/>
 			</Preset>
 			<Preset id="1" displayName="rsense_vanilla">
 				<Entry varId="herbsGlow" value="true"/>
 				<Entry varId="containersGlow" value="true"/>
+				<Entry varId="doorsGlow" value="true"/>
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
