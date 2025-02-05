@@ -16,6 +16,7 @@
 			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			<Var id="herbsGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
 			<Var id="containersGlow" displayName="rsense_containersGlow" displayType="TOGGLE"/>
+			<Var id="doorsGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
 		</VisibleVars>
 	</Group>
 </UserConfig>

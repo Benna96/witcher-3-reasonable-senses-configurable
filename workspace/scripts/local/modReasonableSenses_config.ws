@@ -6,6 +6,7 @@ class CRsenseConfig
 	public var applySettingsOption : CRsenseApplySettingsOption;
 	public var herbGlowOption : CRsenseHerbGlowOption;
 	public var containerGlowOption : CRsenseContainerGlowOption;
+	public var doorGlowOption : CRsenseDoorGlowOption;
 
 	public function Init()
 	{
@@ -14,10 +15,12 @@ class CRsenseConfig
 		applySettingsOption = new CRsenseApplySettingsOption in this;
 		herbGlowOption = new CRsenseHerbGlowOption in this;
 		containerGlowOption = new CRsenseContainerGlowOption in this;
+		doorGlowOption = new CRsenseDoorGlowOption in this;
 
 		options.PushBack( applySettingsOption );
 		options.PushBack( herbGlowOption );
 		options.PushBack( containerGlowOption );
+		options.PushBack( doorGlowOption );
 		for( i = 0; i < options.Size(); i += 1 )
 		{
 			options[ i ].Init();
