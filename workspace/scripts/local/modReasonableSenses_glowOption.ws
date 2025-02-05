@@ -20,9 +20,14 @@ abstract class IRsenseGlowOption extends IRsenseOption
 		{
 			if( EnsureSupportedEntity( entities[ i ] ) )
 			{
-				ApplyToEntity_Impl( entities[ i ] );
+				ApplyToEntity( entities[ i ] );
 			}
 		}
+	}
+
+	protected function ApplyToEntity( entity : CGameplayEntity )
+	{
+		entity.SetFocusModeVisibility( entity.GetFocusModeVisibility() );
 	}
 
 	public final function ClearEntities()
@@ -44,7 +49,6 @@ abstract class IRsenseGlowOption extends IRsenseOption
 	}
 
 	protected function IsSupportedEntity( entity : CGameplayEntity ) : bool;
-	protected function ApplyToEntity_Impl( entity : CGameplayEntity );
 }
 
 /* ----------------------- Glow option state handling ----------------------- */

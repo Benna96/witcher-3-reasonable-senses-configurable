@@ -9,11 +9,6 @@ class CRsenseDoorGlowOption extends IRsenseGlowOption
 	{
 		return (W3Door)entity || (W3NewDoor)entity;
 	}
-
-	protected /* override */ function ApplyToEntity_Impl( entity : CGameplayEntity )
-	{
-		entity.SetFocusModeVisibility(entity.GetFocusModeVisibility());
-	}
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -37,32 +32,12 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( W3Door ) function /* override */ SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
-
-	if( focusModeVisibility == FMV_Interactive && !theGame.GetRsenseConfig().doorGlowOption.currentValue )
-	{
-		focusModeVisibility = FMV_None;
-	}
-
+	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().doorGlowOption );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-
-	LogChannel( 'ReasonableSenses', "Door SetFocusModeVisibility(" + cachedFocusModeVisiblity + "), actually setting to " + focusModeVisibility );
 }
 @addMethod( W3Door ) function /* override */ GetFocusModeVisibility() : EFocusModeVisibility
 {
-	var superValue : EFocusModeVisibility;
-
-	superValue = super.GetFocusModeVisibility();
-
-	// Ensure clue highlight is always returned, even if set through engine
-	if( superValue == FMV_Clue )
-	{
-		return superValue;
-	}
-	
-	else
-	{
-		return cachedFocusModeVisiblity;
-	}
+	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
 }
 
 // Why there are 2 door classes I don't know...
@@ -71,30 +46,10 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( W3NewDoor ) function /* override */ SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
-
-	if( focusModeVisibility == FMV_Interactive && !theGame.GetRsenseConfig().doorGlowOption.currentValue )
-	{
-		focusModeVisibility = FMV_None;
-	}
-
+	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().doorGlowOption );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-
-	LogChannel( 'ReasonableSenses', "Door SetFocusModeVisibility(" + cachedFocusModeVisiblity + "), actually setting to " + focusModeVisibility );
 }
 @addMethod( W3NewDoor ) function /* override */ GetFocusModeVisibility() : EFocusModeVisibility
 {
-	var superValue : EFocusModeVisibility;
-
-	superValue = super.GetFocusModeVisibility();
-
-	// Ensure clue highlight is always returned, even if set through engine
-	if( superValue == FMV_Clue )
-	{
-		return superValue;
-	}
-	
-	else
-	{
-		return cachedFocusModeVisiblity;
-	}
+	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
 }

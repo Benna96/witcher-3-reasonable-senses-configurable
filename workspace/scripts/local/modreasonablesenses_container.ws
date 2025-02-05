@@ -9,11 +9,6 @@ class CRsenseContainerGlowOption extends IRsenseGlowOption
 	{
 		return (W3Container)entity;
 	}
-
-	protected /* override */ function ApplyToEntity_Impl( entity : CGameplayEntity )
-	{
-		((W3Container)entity).RequestUpdateContainer(); // UpdateContainer updates focus visibility among other things
-	}
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -32,41 +27,16 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( W3Container ) function /* override */ SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
-
-	if( focusModeVisibility == FMV_Interactive )
-	{
-		focusModeVisibility = GetInteractiveFocusModeVisibility();
-	}
-
+	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetRelevantGlowOption() );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
 @addMethod( W3Container ) function /* override */ GetFocusModeVisibility() : EFocusModeVisibility
 {
-	var superValue : EFocusModeVisibility;
-
-	superValue = super.GetFocusModeVisibility();
-
-	// Ensure clue highlight is always returned, even if set through engine
-	if( superValue == FMV_Clue )
-	{
-		return superValue;
-	}
-	
-	else
-	{
-		return cachedFocusModeVisiblity;
-	}
+	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
 }
 
 // Helper function needed because W3Herb has its own logic
-@addMethod( W3Container ) protected function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
+@addMethod( W3Container ) protected function GetRelevantGlowOption() : IRsenseGlowOption
 {
-	if( !theGame.GetRsenseConfig().containerGlowOption.currentValue )
-	{
-		return FMV_None;
-	}
-	else
-	{
-		return FMV_Interactive;
-	}
+	return theGame.GetRsenseConfig().containerGlowOption;
 }

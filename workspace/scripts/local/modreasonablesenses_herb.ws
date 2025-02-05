@@ -10,9 +10,18 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 		return (W3Herb)entity;
 	}
 
-	protected /* override */ function ApplyToEntity_Impl( entity : CGameplayEntity )
+	// Most herbs' visibility depends on foliageComponent
+	protected /* override */ function ApplyToEntity( entity : CGameplayEntity )
 	{
-		((W3Herb)entity).RequestUpdateContainer(); // UpdateContainer updates focus visibility among other things
+		var foliageComponent : CSwitchableFoliageComponent;
+
+		super.ApplyToEntity( entity );
+
+		foliageComponent = (CSwitchableFoliageComponent)entity.GetComponentByClassName( 'CSwitchableFoliageComponent' );
+		if( foliageComponent )
+		{
+			foliageComponent.SetAndSaveEntry( foliageComponent.GetEntry() );
+		}
 	}
 }
 
@@ -26,27 +35,26 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 
 /* -------------------------- Visibility injection -------------------------- */
 
-// Required for most herbs, links to the new SRTs
+// Used in _container
+// Helper func needed because W3Container has its own option
+@addMethod( W3Herb ) protected /* override */ function GetRelevantGlowOption() : IRsenseGlowOption
+{
+	return theGame.GetRsenseConfig().herbGlowOption;
+}
+
+// Most herbs use foliage's entry instead of focusModeVisibility
 @wrapMethod( CSwitchableFoliageComponent ) function SetAndSaveEntry( entryName : name )
 {
+	var cachedEntryName : name;
+
+	cachedEntryName = entryName;
+
 	if( entryName == 'full' && (W3Herb)GetEntity() && !theGame.GetRsenseConfig().herbGlowOption.currentValue )
 	{
 		entryName = 'fullnoglow';
+		LogChannel('ReasonableSenses', "herb full SetAndSaveEntry called");
 	}
 
 	wrappedMethod( entryName );
-}
-
-// Used in _container
-// Helper func needed because W3Container has its own logic
-@addMethod( W3Herb ) protected /* override */ function GetInteractiveFocusModeVisibility() : EFocusModeVisibility
-{
-	if( !theGame.GetRsenseConfig().herbGlowOption.currentValue )
-	{
-		return FMV_None;
-	}
-	else
-	{
-		return FMV_Interactive;
-	}
+	currEntryName = cachedEntryName; // To return the "set" visibility from GetEntry
 }
