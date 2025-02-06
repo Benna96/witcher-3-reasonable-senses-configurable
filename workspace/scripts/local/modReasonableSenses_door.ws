@@ -5,7 +5,7 @@
 
 class CRsenseDoorGlowOption extends IRsenseGlowOption
 {
-	default xmlId = 'doorsGlow';
+	default xmlId = 'doorGlow';
 	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
@@ -33,26 +33,26 @@ class CRsenseDoorGlowOption extends IRsenseGlowOption
 // Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
 @addField( W3Door )
 private var cachedFocusModeVisiblity : EFocusModeVisibility;
-@addMethod( W3Door ) function /* override */ SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
+@addMethod( W3Door ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
 	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().doorGlowOption );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
-@addMethod( W3Door ) function /* override */ GetFocusModeVisibility() : EFocusModeVisibility
+@addMethod( W3Door ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
 {
 	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
 }
 
 @addField( W3NewDoor )
 private var cachedFocusModeVisiblity : EFocusModeVisibility;
-@addMethod( W3NewDoor ) function /* override */ SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
+@addMethod( W3NewDoor ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
 	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().doorGlowOption );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
-@addMethod( W3NewDoor ) function /* override */ GetFocusModeVisibility() : EFocusModeVisibility
+@addMethod( W3NewDoor ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
 {
 	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
 }

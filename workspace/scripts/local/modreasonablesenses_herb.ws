@@ -2,7 +2,7 @@
 
 class CRsenseHerbGlowOption extends IRsenseGlowOption
 {
-	default xmlId = 'herbsGlow';
+	default xmlId = 'herbGlow';
 	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
@@ -25,22 +25,24 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 	}
 }
 
-/* ------------------------------ Registration ------------------------------ */
+/* ------------------------------ Option getter ----------------------------- */
 
-@wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
-{
-	theGame.GetRsenseConfig().herbGlowOption.RegisterEntity( this );
-	wrappedMethod( spawnData );
-}
-
-/* -------------------------- Visibility injection -------------------------- */
-
-// Used in _container
-// Helper func needed because various container classes have their own options
+// Used in _container, some visibility done through there
 @addMethod( W3Herb ) protected /* override */ function GetRelevantGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().herbGlowOption;
 }
+
+/* ------------------------------ Registration ------------------------------ */
+
+// Usually done through _container, but herbs don't call super.OnSpawned
+@wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
+{
+	GetRelevantGlowOption().RegisterEntity( this );
+	wrappedMethod( spawnData );
+}
+
+/* -------------------------- Visibility injection -------------------------- */
 
 // Most herbs use foliage's entry instead of focusModeVisibility
 @wrapMethod( CSwitchableFoliageComponent ) function SetAndSaveEntry( entryName : name )

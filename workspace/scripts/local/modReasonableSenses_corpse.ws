@@ -11,18 +11,9 @@ class CRsenseCorpseGlowOption extends IRsenseGlowOption
 	}
 }
 
-/* ------------------------------ Registration ------------------------------ */
+/* ------------------------------ Option getter ----------------------------- */
 
-@wrapMethod( W3ActorRemains ) function OnSpawned( spawnData : SEntitySpawnData )
-{
-	theGame.GetRsenseConfig().corpseGlowOption.RegisterEntity( this );
-	wrappedMethod( spawnData );
-}
-
-/* -------------------------- Visibility injection -------------------------- */
-
-// Used in _container
-// Helper func needed because various container classes have their own options
+// Used in _container, functionality done through there
 @addMethod( W3ActorRemains ) protected /* override */ function GetRelevantGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().corpseGlowOption;

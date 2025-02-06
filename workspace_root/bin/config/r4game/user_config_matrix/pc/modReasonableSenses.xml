@@ -3,25 +3,26 @@
 	<Group id="ReasonableSenses" displayName="Mods.rsense">
 		<PresetsArray>
 			<Preset id="0" displayName="rsense_authorPick">
-				<Entry varId="herbsGlow" value="false"/>
-				<Entry varId="containersGlow" value="false"/>
-				<Entry varId="doorsGlow" value="false"/>
+				<Entry varId="doorGlow" value="false"/>
+				<Entry varId="herbGlow" value="false"/>
 				<Entry varId="corpseGlow" value="false"/>
+				<Entry varId="containerGlow" value="false"/>
 			</Preset>
 			<Preset id="1" displayName="rsense_vanilla">
-				<Entry varId="herbsGlow" value="true"/>
-				<Entry varId="containersGlow" value="true"/>
-				<Entry varId="doorsGlow" value="true"/>
+				<Entry varId="doorGlow" value="true"/>
+				<Entry varId="herbGlow" value="true"/>
 				<Entry varId="corpseGlow" value="true"/>
+				<Entry varId="containerGlow" value="true"/>
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
 			<Var id="applySettings" displayName="rsense_applySettings" displayType="TOGGLE"/>
 			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
-			<Var id="herbsGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
-			<Var id="containersGlow" displayName="rsense_containersGlow" displayType="TOGGLE"/>
-			<Var id="doorsGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
+			<Var id="doorGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
+			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
+			<Var id="herbGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
 			<Var id="corpseGlow" displayName="rsense_corpsesGlow" displayType="TOGGLE"/>
+			<Var id="containerGlow" displayName="rsense_otherContainersGlow" displayType="TOGGLE"/>
 		</VisibleVars>
 	</Group>
 </UserConfig>
