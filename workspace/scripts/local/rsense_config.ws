@@ -5,6 +5,7 @@ class CRsenseConfig
 	private var options : array< IRsenseOption >;
 	public var applySettingsOption : CRsenseApplySettingsOption;
 	public var herbGlowOption : CRsenseHerbGlowOption;
+	public var beehiveGlowOption : CRsenseBeehiveGlowOption;
 	public var containerGlowOption : CRsenseContainerGlowOption;
 	public var doorGlowOption : CRsenseDoorGlowOption;
 	public var corpseGlowOption : CRsenseCorpseGlowOption;
@@ -15,12 +16,14 @@ class CRsenseConfig
 
 		applySettingsOption = new CRsenseApplySettingsOption in this;
 		herbGlowOption = new CRsenseHerbGlowOption in this;
+		beehiveGlowOption = new CRsenseBeehiveGlowOption in this;
 		containerGlowOption = new CRsenseContainerGlowOption in this;
 		doorGlowOption = new CRsenseDoorGlowOption in this;
 		corpseGlowOption = new CRsenseCorpseGlowOption in this;
 
 		options.PushBack( applySettingsOption );
 		options.PushBack( herbGlowOption );
+		options.PushBack( beehiveGlowOption );
 		options.PushBack( containerGlowOption );
 		options.PushBack( doorGlowOption );
 		options.PushBack( corpseGlowOption );
