@@ -35,7 +35,7 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
 }
 
-// Helper function needed because W3Herb has its own logic
+// Helper func needed because various container classes have their own options
 @addMethod( W3Container ) protected function GetRelevantGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().containerGlowOption;

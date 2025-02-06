@@ -36,7 +36,7 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 /* -------------------------- Visibility injection -------------------------- */
 
 // Used in _container
-// Helper func needed because W3Container has its own option
+// Helper func needed because various container classes have their own options
 @addMethod( W3Herb ) protected /* override */ function GetRelevantGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().herbGlowOption;
