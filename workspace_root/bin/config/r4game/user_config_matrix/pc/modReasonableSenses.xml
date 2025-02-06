@@ -4,6 +4,7 @@
 		<PresetsArray>
 			<Preset id="0" displayName="rsense_authorPick">
 				<Entry varId="doorGlow" value="false"/>
+				<Entry varId="signpostGlow" value="false"/>
 				<Entry varId="herbGlow" value="false"/>
 				<Entry varId="beehiveGlow" value="false"/>
 				<Entry varId="corpseGlow" value="false"/>
@@ -11,6 +12,7 @@
 			</Preset>
 			<Preset id="1" displayName="rsense_vanilla">
 				<Entry varId="doorGlow" value="true"/>
+				<Entry varId="signpostGlow" value="true"/>
 				<Entry varId="herbGlow" value="true"/>
 				<Entry varId="beehiveGlow" value="true"/>
 				<Entry varId="corpseGlow" value="true"/>
@@ -21,6 +23,7 @@
 			<Var id="applySettings" displayName="rsense_applySettings" displayType="TOGGLE"/>
 			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			<Var id="doorGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
+			<Var id="signpostGlow" displayName="rsense_signpostsGlow" displayType="TOGGLE"/>
 			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			<Var id="herbGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
 			<Var id="beehiveGlow" displayName="rsense_beehivesGlow" displayType="TOGGLE"/>
