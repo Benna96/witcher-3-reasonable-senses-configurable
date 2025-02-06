@@ -12,6 +12,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 - Only supports a subset of the types predecessor does at the current moment (planning to add all tho)
   - Containers (chests, barrels, boxes, etc)
   - Doors
+  - Posters
 
 ## Technical
 
