@@ -16,7 +16,7 @@
 			<Preset id="1" displayName="rsense_vanilla">
 				<Entry varId="doorGlow" value="true"/>
 				<Entry varId="signpostGlow" value="true"/>
-				<Entry varId="noticeboardGlow" value="false"/>
+				<Entry varId="noticeboardGlow" value="true"/>
 				<Entry varId="posterGlow" value="true"/>
 				<Entry varId="stashGlow" value="true"/>
 				<Entry varId="herbGlow" value="true"/>
