@@ -8,6 +8,8 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 - Glow for each supported type of object is configurable from a mod menu
 - Support herbs
+- Support signpost ( & fix visibility bug )
+- Support stash
 - Support some types of containers separately from other containers
 
 ## Technical
