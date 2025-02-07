@@ -54,7 +54,6 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 	if( entryName == 'full' && (W3Herb)GetEntity() && !theGame.GetRsenseConfig().herbGlowOption.currentValue )
 	{
 		entryName = 'fullnoglow';
-		LogChannel('ReasonableSenses', "herb full SetAndSaveEntry called");
 	}
 
 	wrappedMethod( entryName );
