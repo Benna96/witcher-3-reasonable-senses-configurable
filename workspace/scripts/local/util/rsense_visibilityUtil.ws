@@ -17,14 +17,13 @@ function Rsense_MaybeNoVisibility( focusModeVisibility : EFocusModeVisibility, o
 // Call from GetFocusModeVisibility override
 function Rsense_SuperOrCachedVisibility( superValue : EFocusModeVisibility, cachedValue : EFocusModeVisibility ) : EFocusModeVisibility
 {
-	// Ensure clue highlight is always returned, even if set through engine
-	if( superValue == FMV_Clue )
-	{
-		return superValue;
-	}
-
-	else
+	// Mod logic may override visibility to None, but never others.
+	if( superValue == FMV_None )
 	{
 		return cachedValue;
+	}
+	else
+	{
+		return superValue;
 	}
 }
