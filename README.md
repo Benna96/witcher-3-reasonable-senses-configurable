@@ -12,6 +12,14 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 - Support stash
 - Support some types of containers separately from other containers
 
+## Mod compatibility
+
+- Friendly Focus: When 'Fade Transition' option is off, objects that you've set to not glow may glow for a split second on the first time you focus after a loading screen
+  - Couldn't solve this
+    - Vanilla's slower transition only hides the issue, & lengthening Friendly Focus' quicker transition time wouldn't help consistently as I think it depends on the object's distance from camera as well
+  - Something that'd edit out the glow's trailing effect might fix it. (Trailing effect meaning, when you move the camera around, old glow chills around for a bit.)
+    - Most likely would need a shader edit, which seems close to if not impossible
+
 ## Technical
 
 ### Mod structure, logic, notes
