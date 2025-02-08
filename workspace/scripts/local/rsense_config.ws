@@ -3,7 +3,6 @@
 class CRsenseConfig
 {
 	private var options : array< IRsenseOption >;
-	public var applySettingsOption : CRsenseApplySettingsOption;
 	public var signpostGlowOption : CRsenseSignpostGlowOption;
 	public var noticeboardGlowOption : CRsenseNoticeboardGlowOption;
 	public var posterGlowOption : CRsensePosterGlowOption;
@@ -18,7 +17,6 @@ class CRsenseConfig
 	{
 		var i : int;
 
-		applySettingsOption = new CRsenseApplySettingsOption in this;
 		signpostGlowOption = new CRsenseSignpostGlowOption in this;
 		noticeboardGlowOption = new CRsenseNoticeboardGlowOption in this;
 		posterGlowOption = new CRsensePosterGlowOption in this;
@@ -29,7 +27,6 @@ class CRsenseConfig
 		doorGlowOption = new CRsenseDoorGlowOption in this;
 		corpseGlowOption = new CRsenseCorpseGlowOption in this;
 
-		options.PushBack( applySettingsOption );
 		options.PushBack( signpostGlowOption );
 		options.PushBack( noticeboardGlowOption );
 		options.PushBack( posterGlowOption );

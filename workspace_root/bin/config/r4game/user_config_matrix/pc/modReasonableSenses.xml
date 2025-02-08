@@ -26,8 +26,6 @@
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
-			<Var id="applySettings" displayName="rsense_applySettings" displayType="TOGGLE"/>
-			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			<Var id="doorGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
 			<Var id="signpostGlow" displayName="rsense_signpostsGlow" displayType="TOGGLE"/>
 			<Var id="noticeboardGlow" displayName="rsense_noticeboardsGlow" displayType="TOGGLE"/>

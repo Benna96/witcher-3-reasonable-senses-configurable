@@ -63,7 +63,7 @@ Install the mod as you would any other mod.
 I recommend using [The Witcher 3 Mod Manager](https://www.nexusmods.com/witcher3/mods/2678).
 - *Note*: The mod needs to be packed first, as it includes files that need to be in a bundle. I recommend downloading the mod from its Nexus Page.
 
-Ingame, go to Options, Mods, Reasonable Senses. Configure the options to your liking. Then, hit Apply Settings, or reload your save, to have the new settings take effect.
+Ingame, go to Options, Mods, Reasonable Senses. Configure the options to your liking.
 - ***Important note:*** If your Mods menu has over 9 menus in it, the ones later in the list don't work due to engine limitations.  
 You'll need to install [Community Patch - Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) and edit `modReasonableSenses.xml` to put Reasonable Senses Configurable in a submenu, see description of [Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) for instructions.  
 Reasonable Senses Configurable supports whichever submenu you pick; I pick *Visuals and Graphics*, myself (and plan to ship a version of the mod already under it).
