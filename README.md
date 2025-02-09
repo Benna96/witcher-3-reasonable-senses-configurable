@@ -19,6 +19,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
     - Vanilla's slower transition only hides the issue, & lengthening Friendly Focus' quicker transition time wouldn't help consistently as I think it depends on the object's distance from camera as well
   - Something that'd edit out the glow's trailing effect might fix it. (Trailing effect meaning, when you move the camera around, old glow chills around for a bit.)
     - Most likely would need a shader edit, which seems close to if not impossible
+    - Or, it's a particle effect, but going through a bunch of `.w2p` files with even the most slightly related names, none affected it. Wonder if there's ones not exposed to REDkit... Editing monster ripple ones worked just fine.
 
 ## Technical
 
