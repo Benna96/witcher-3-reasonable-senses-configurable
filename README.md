@@ -11,6 +11,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 - Support signpost ( & fix visibility bug )
 - Support stash
 - Support workbenches & grindstones
+- Support clues (note, clue glow still shows up, this hides interactive glow)
 - Support some types of containers separately from other containers
 
 ## Mod compatibility

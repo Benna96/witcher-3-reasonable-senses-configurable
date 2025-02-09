@@ -6,6 +6,7 @@ class CRsenseConfig
 	public var signpostGlowOption : CRsenseSignpostGlowOption;
 	public var noticeboardGlowOption : CRsenseNoticeboardGlowOption;
 	public var buffStationGlowOption : CRsenseBuffStationGlowOption;
+	public var clueGlowOption : CRsenseClueGlowOption;
 	public var posterGlowOption : CRsensePosterGlowOption;
 	public var stashGlowOption : CRsenseStashGlowOption;
 	public var herbGlowOption : CRsenseHerbGlowOption;
@@ -21,6 +22,7 @@ class CRsenseConfig
 		signpostGlowOption = new CRsenseSignpostGlowOption in this;
 		noticeboardGlowOption = new CRsenseNoticeboardGlowOption in this;
 		buffStationGlowOption = new CRsenseBuffStationGlowOption in this;
+		clueGlowOption = new CRsenseClueGlowOption in this;
 		posterGlowOption = new CRsensePosterGlowOption in this;
 		stashGlowOption = new CRsenseStashGlowOption in this;
 		herbGlowOption = new CRsenseHerbGlowOption in this;
@@ -32,6 +34,7 @@ class CRsenseConfig
 		options.PushBack( signpostGlowOption );
 		options.PushBack( noticeboardGlowOption );
 		options.PushBack( buffStationGlowOption );
+		options.PushBack( clueGlowOption );
 		options.PushBack( posterGlowOption );
 		options.PushBack( stashGlowOption );
 		options.PushBack( herbGlowOption );
