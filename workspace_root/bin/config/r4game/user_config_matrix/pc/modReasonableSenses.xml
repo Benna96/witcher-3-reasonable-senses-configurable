@@ -5,7 +5,7 @@
 			<Preset id="0" displayName="rsense_authorPick">
 				<Entry varId="doorGlow" value="false"/>
 				<Entry varId="posterGlow" value="false"/>
-				<Entry varId="clueGlow" value="false"/>
+				<Entry varId="clueGlow" value="1"/>
 				<Entry varId="stashGlow" value="false"/>
 				<Entry varId="signpostGlow" value="false"/>
 				<Entry varId="noticeboardGlow" value="false"/>
@@ -18,7 +18,7 @@
 			<Preset id="1" displayName="rsense_vanilla">
 				<Entry varId="doorGlow" value="true"/>
 				<Entry varId="posterGlow" value="true"/>
-				<Entry varId="clueGlow" value="true"/>
+				<Entry varId="clueGlow" value="2"/>
 				<Entry varId="stashGlow" value="true"/>
 				<Entry varId="signpostGlow" value="true"/>
 				<Entry varId="noticeboardGlow" value="true"/>
@@ -32,7 +32,13 @@
 		<VisibleVars>
 			<Var id="doorGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
 			<Var id="posterGlow" displayName="rsense_postersGlow" displayType="TOGGLE"/>
-			<Var id="clueGlow" displayName="rsense_cluesGlow" displayType="TOGGLE"/>
+			<Var id="clueGlow" displayName="rsense_cluesGlow" displayType="OPTIONS">
+				<OptionsArray>
+					<Option id="0" displayName="rsense_glow_Never"><Entry varId="clueGlow" value="0"/></Option>
+					<Option id="1" displayName="rsense_glow_UnexaminedOnly"><Entry varId="clueGlow" value="1"/></Option>
+					<Option id="2" displayName="rsense_glow_Always"><Entry varId="clueGlow" value="2"/></Option>
+				</OptionsArray>
+			</Var>
 			<Var id="stashGlow" displayName="rsense_stashesGlow" displayType="TOGGLE"/>
 			<Var id="_sep1" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			<Var id="signpostGlow" displayName="rsense_signpostsGlow" displayType="TOGGLE"/>

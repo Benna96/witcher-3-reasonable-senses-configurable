@@ -8,6 +8,7 @@ abstract class IRsenseOption
 	protected const var defaultValue : string;
 
 	protected var config : CInGameConfigWrapper;
+	protected var xmlType : string;
 
 	public var currentValue : string;
 
@@ -16,6 +17,7 @@ abstract class IRsenseOption
 		var configValue : string;
 
 		config = theGame.GetInGameConfigWrapper();
+		xmlType = config.GetVarDisplayType( xmlGroup, xmlId );
 		
 		configValue = config.GetVarValue( xmlGroup, xmlId );
 		if( StrLen( configValue ) == 0 )
@@ -25,6 +27,7 @@ abstract class IRsenseOption
 		}
 
 		currentValue = configValue;
+		OnValueChanged( currentValue );
 	}
 
 	public final function Apply( force : bool )
@@ -36,10 +39,12 @@ abstract class IRsenseOption
 		if( force || ( configValue != currentValue ) )
 		{
 			currentValue = configValue;
+			OnValueChanged( currentValue );
 			Apply_Impl();
 		}
 	}
 
+	protected function OnValueChanged( newValue : string ) {}
 	protected function Apply_Impl();
 }
 

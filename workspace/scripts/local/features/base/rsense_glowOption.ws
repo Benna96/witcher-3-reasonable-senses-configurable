@@ -2,7 +2,42 @@
 
 abstract class IRsenseGlowOption extends IRsenseOption
 {
+	public var allowedVisibilities : int; // Flag version of EFocusModeVisibility, fmv has so few values that they work as flags as is
 	protected var entities : array< CGameplayEntity >;
+
+	protected /* override */ function OnValueChanged( newValue : string )
+	{
+		var option : string;
+
+		allowedVisibilities = FMV_None;
+
+		if( xmlType == "TOGGLE" )
+		{
+			allowedVisibilities |= FMV_Clue;
+			if( newValue )
+			{
+				allowedVisibilities |= FMV_Interactive;
+			}
+		}
+
+		else if( xmlType == "OPTIONS" )
+		{
+			option = config.GetVarOption( xmlGroup, xmlId, (int)newValue );
+			if( option == "rsense_glow_UnexaminedOnly" || option == "rsense_glow_Always" )
+			{
+				allowedVisibilities |= FMV_Clue;
+			}
+			if( option == "rsense_glow_Always" )
+			{
+				allowedVisibilities |= FMV_Interactive;
+			}
+		}
+
+		else
+		{
+			LogChannel( 'ReasonableSenses', ToString() + ": Unsupported xmlType " + xmlType );
+		}
+	}
 
 	public final function RegisterEntity( entity : CGameplayEntity )
 	{

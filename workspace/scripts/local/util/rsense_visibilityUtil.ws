@@ -4,13 +4,13 @@
 // Call from SetFocusModeVisibility override
 function Rsense_MaybeNoVisibility( focusModeVisibility : EFocusModeVisibility, option : IRsenseGlowOption ) : EFocusModeVisibility
 {
-	if( focusModeVisibility == FMV_Interactive && !option.currentValue )
+	if( focusModeVisibility & option.allowedVisibilities )
 	{
-		return FMV_None;
+		return focusModeVisibility;
 	}
 	else
 	{
-		return focusModeVisibility;
+		return FMV_None;
 	}
 }
 
