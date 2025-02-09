@@ -10,6 +10,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 - Support herbs
 - Support signpost ( & fix visibility bug )
 - Support stash
+- Support workbenches & grindstones
 - Support some types of containers separately from other containers
 
 ## Mod compatibility

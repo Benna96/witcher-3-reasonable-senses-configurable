@@ -6,6 +6,7 @@
 				<Entry varId="doorGlow" value="false"/>
 				<Entry varId="signpostGlow" value="false"/>
 				<Entry varId="noticeboardGlow" value="false"/>
+				<Entry varId="buffStationGlow" value="false"/>
 				<Entry varId="posterGlow" value="false"/>
 				<Entry varId="stashGlow" value="false"/>
 				<Entry varId="herbGlow" value="false"/>
@@ -17,6 +18,7 @@
 				<Entry varId="doorGlow" value="true"/>
 				<Entry varId="signpostGlow" value="true"/>
 				<Entry varId="noticeboardGlow" value="true"/>
+				<Entry varId="buffStationGlow" value="true"/>
 				<Entry varId="posterGlow" value="true"/>
 				<Entry varId="stashGlow" value="true"/>
 				<Entry varId="herbGlow" value="true"/>
@@ -29,6 +31,7 @@
 			<Var id="doorGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
 			<Var id="signpostGlow" displayName="rsense_signpostsGlow" displayType="TOGGLE"/>
 			<Var id="noticeboardGlow" displayName="rsense_noticeboardsGlow" displayType="TOGGLE"/>
+			<Var id="buffStationGlow" displayName="rsense_workbenchesAndGrindstonesGlow" displayType="TOGGLE"/>
 			<Var id="posterGlow" displayName="rsense_postersGlow" displayType="TOGGLE"/>
 			<Var id="stashGlow" displayName="rsense_stashesGlow" displayType="TOGGLE"/>
 			<Var id="" displayName="" displayType="SUBTLE_SEPARATOR"/>
