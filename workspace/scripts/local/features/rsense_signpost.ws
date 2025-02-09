@@ -15,9 +15,9 @@ class CRsenseSignpostGlowOption extends IRsenseGlowOption
 
 @wrapMethod( W3FastTravelEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	theGame.GetRsenseConfig().signpostGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
 	SetFocusModeVisibility( FMV_Interactive ); // Without this not all signposts glow
+	theGame.GetRsenseConfig().signpostGlowOption.RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */

@@ -25,7 +25,6 @@ private var rsenseInitDone : bool;
 	if( !rsenseInitDone )
 	{
 		theGame.GetRsenseConfig().stashGlowOption.RegisterEntity( this );
-		SetFocusModeVisibility( FMV_Interactive ); // Without this initial focus mode is 'None'
 	}
 }
 

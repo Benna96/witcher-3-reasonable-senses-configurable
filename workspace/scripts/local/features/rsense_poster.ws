@@ -15,8 +15,8 @@ class CRsensePosterGlowOption extends IRsenseGlowOption
 
 @wrapMethod( W3Poster ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	theGame.GetRsenseConfig().posterGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
+	theGame.GetRsenseConfig().posterGlowOption.RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */

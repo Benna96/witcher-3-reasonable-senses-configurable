@@ -19,9 +19,8 @@ class CRsenseBuffStationGlowOption extends IRsenseGlowOption
 private var rsenseInitDone : bool;
 @wrapMethod( W3ItemRepairObject ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	theGame.GetRsenseConfig().buffStationGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
-	SetFocusModeVisibility( GetFocusModeVisibility() ); // Without this, visibility is only set on engine side not script
+	theGame.GetRsenseConfig().buffStationGlowOption.RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */

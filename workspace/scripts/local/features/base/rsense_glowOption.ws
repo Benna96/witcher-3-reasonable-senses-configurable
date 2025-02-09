@@ -9,6 +9,7 @@ abstract class IRsenseGlowOption extends IRsenseOption
 		if( EnsureSupportedEntity( entity ) )
 		{
 			entities.PushBack( entity );
+			ApplyToEntity( entity );
 		}
 	}
 

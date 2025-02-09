@@ -24,8 +24,8 @@ class CRsenseContainerGlowOption extends IRsenseGlowOption
 
 @wrapMethod( W3Container ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	GetRelevantGlowOption().RegisterEntity( this );
 	wrappedMethod( spawnData );
+	GetRelevantGlowOption().RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */

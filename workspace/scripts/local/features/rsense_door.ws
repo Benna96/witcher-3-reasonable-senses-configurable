@@ -18,14 +18,14 @@ class CRsenseDoorGlowOption extends IRsenseGlowOption
 
 @wrapMethod( W3Door ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	theGame.GetRsenseConfig().doorGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
+	theGame.GetRsenseConfig().doorGlowOption.RegisterEntity( this );
 }
 
 @wrapMethod( W3NewDoor ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	theGame.GetRsenseConfig().doorGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
+	theGame.GetRsenseConfig().doorGlowOption.RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */

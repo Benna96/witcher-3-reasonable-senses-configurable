@@ -38,8 +38,8 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 // Usually done through _container, but herbs don't call super.OnSpawned
 @wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	GetRelevantGlowOption().RegisterEntity( this );
 	wrappedMethod( spawnData );
+	GetRelevantGlowOption().RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */

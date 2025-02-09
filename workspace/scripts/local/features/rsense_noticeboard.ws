@@ -15,8 +15,8 @@ class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
 
 @wrapMethod( W3NoticeBoard ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	theGame.GetRsenseConfig().noticeboardGlowOption.RegisterEntity( this );
 	wrappedMethod( spawnData );
+	theGame.GetRsenseConfig().noticeboardGlowOption.RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */
