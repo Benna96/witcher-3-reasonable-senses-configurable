@@ -4,3 +4,8 @@ cookeddlc/
 logs/
 packed/
 publish/
+
+# No archives, I like keeping them in repo folder for convenience
+*.7z
+*.zip
+*.rar
