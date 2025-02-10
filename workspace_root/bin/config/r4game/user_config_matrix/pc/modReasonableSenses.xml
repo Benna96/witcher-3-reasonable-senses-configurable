@@ -17,7 +17,7 @@
 				<Entry varId="corpseGlow" value="false"/>
 				<Entry varId="containerGlow" value="false"/>
 			</Preset>
-			<Preset id="1" displayName="rsense_authorPick">
+			<Preset id="1" displayName="rsense_minimalist">
 				<Entry varId="doorGlow" value="false"/>
 				<Entry varId="posterGlow" value="false"/>
 				<Entry varId="clueGlow" value="1"/>
