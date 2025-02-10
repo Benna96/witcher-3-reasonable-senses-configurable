@@ -5,39 +5,41 @@
 2113377001||panel_rsense|Reasonable Senses
 ;
 ;---------------- Title, support Community Patch - Menu Strings ----------------
-2113377002||preset_Mods_rsense|Reasonable Senses
-2113377003||preset_Mods_alchemy_and_equipment_rsense|Reasonable Senses
-2113377004||preset_Mods_camera_rsense|Reasonable Senses
-2113377005||preset_Mods_characters_rsense|Reasonable Senses
-2113377006||preset_Mods_combat_rsense|Reasonable Senses
-2113377007||preset_Mods_gameplay_rsense|Reasonable Senses
-2113377008||preset_Mods_quests_and_adventures_rsense|Reasonable Senses
-2113377009||preset_Mods_user_interface_rsense|Reasonable Senses
-2113377010||preset_Mods_visuals_and_graphics_rsense|Reasonable Senses
-2113377011||preset_Mods_miscellaneous_rsense|Reasonable Senses
+2113377010||preset_Mods_rsense|Reasonable Senses
+2113377011||preset_Mods_alchemy_and_equipment_rsense|Reasonable Senses
+2113377012||preset_Mods_camera_rsense|Reasonable Senses
+2113377013||preset_Mods_characters_rsense|Reasonable Senses
+2113377014||preset_Mods_combat_rsense|Reasonable Senses
+2113377015||preset_Mods_gameplay_rsense|Reasonable Senses
+2113377016||preset_Mods_quests_and_adventures_rsense|Reasonable Senses
+2113377017||preset_Mods_user_interface_rsense|Reasonable Senses
+2113377018||preset_Mods_visuals_and_graphics_rsense|Reasonable Senses
+2113377019||preset_Mods_miscellaneous_rsense|Reasonable Senses
 ;-------------------------------------------------------------------------------
 ;
 ;----------------------------------- Presets -----------------------------------
-2113377012||preset_value_rsense_authorPick|Author's Pick
-2113377013||preset_value_rsense_vanilla|Vanilla
+2113377020||preset_value_rsense_authorPick|Author's Pick
+2113377021||preset_value_rsense_vanilla|Vanilla
 ;-------------------------------------------------------------------------------
 ;
 ;----------------------------------- Options -----------------------------------
-2113377015||option_rsense_herbsGlow|Herbs Glow
-2113377016||option_rsense_otherContainersGlow|Other Containers Glow
-2113377017||option_rsense_doorsGlow|Doors Glow
-2113377018||option_rsense_corpsesGlow|Corpses Glow
-2113377019||option_rsense_beehivesGlow|Beehives Glow
-2113377020||option_rsense_signpostsGlow|Signposts Glow
-2113377021||option_rsense_postersGlow|Posters Glow
-2113377022||option_rsense_noticeboardsGlow|Noticeboards Glow
-2113377023||option_rsense_stashesGlow|Stashes Glow
-2113377024||option_rsense_workbenchesAndGrindstonesGlow|Workbenches & Grindstones Glow
-2113377025||option_rsense_cluesGlow|Clues Glow
+2113377030||option_rsense_doorsGlow|Doors glow
+2113377031||option_rsense_postersGlow|Posters glow
+2113377032||option_rsense_cluesGlow|Clues glow
+2113377033||option_rsense_stashesGlow|Stashes glow
+;
+2113377040||option_rsense_signpostsGlow|Signposts glow
+2113377041||option_rsense_noticeboardsGlow|Noticeboards glow
+2113377042||option_rsense_workbenchesAndGrindstonesGlow|Workbenches & grindstones glow
+;
+2113377050||option_rsense_herbsGlow|Herbs glow
+2113377051||option_rsense_beehivesGlow|Beehives glow
+2113377052||option_rsense_otherContainersGlow|Other containers glow
+2113377053||option_rsense_corpsesGlow|Corpses glow
 ;-------------------------------------------------------------------------------
 ;
 ;----------------------------- Option array items ------------------------------
-2113377026||preset_value_rsense_glow_Never|Never
-2113377027||preset_value_rsense_glow_UnexaminedOnly|Unexamined Only
-2113377028||preset_value_rsense_glow_Always|Always
+2113377060||preset_value_rsense_glow_Never|Never
+2113377061||preset_value_rsense_glow_UnexaminedOnly|Only when unexamined
+2113377062||preset_value_rsense_glow_Always|Always
 ;-------------------------------------------------------------------------------
