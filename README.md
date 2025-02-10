@@ -42,6 +42,8 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 ### Repo structure
 
+- `_tools` folder
+  - Callable `*.bat` files to be called by higher-level `*.bat` files
 - One folder for each eventual `modX` folder
   - Subfolders
     - `redkit`: files that need to be packed into bundles or caches
