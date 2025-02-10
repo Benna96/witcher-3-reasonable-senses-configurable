@@ -3,7 +3,7 @@
 class CRsenseSignpostGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'signpostGlow';
-	default defaultValue = "false";
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

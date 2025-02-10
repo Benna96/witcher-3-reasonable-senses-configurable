@@ -2,7 +2,22 @@
 <UserConfig>
 	<Group id="ReasonableSenses" displayName="Mods.rsense">
 		<PresetsArray>
-			<Preset id="0" displayName="rsense_authorPick">
+			<Preset id="0" displayName="rsense_default">
+				<Entry varId="doorGlow" value="false"/>
+				<Entry varId="posterGlow" value="false"/>
+				<Entry varId="clueGlow" value="1"/>
+				<Entry varId="stashGlow" value="true"/>
+
+				<Entry varId="signpostGlow" value="true"/>
+				<Entry varId="noticeboardGlow" value="true"/>
+				<Entry varId="buffStationGlow" value="true"/>
+				
+				<Entry varId="herbGlow" value="false"/>
+				<Entry varId="beehiveGlow" value="true"/>
+				<Entry varId="corpseGlow" value="false"/>
+				<Entry varId="containerGlow" value="false"/>
+			</Preset>
+			<Preset id="1" displayName="rsense_authorPick">
 				<Entry varId="doorGlow" value="false"/>
 				<Entry varId="posterGlow" value="false"/>
 				<Entry varId="clueGlow" value="1"/>
@@ -17,7 +32,7 @@
 				<Entry varId="corpseGlow" value="false"/>
 				<Entry varId="containerGlow" value="false"/>
 			</Preset>
-			<Preset id="1" displayName="rsense_vanilla">
+			<Preset id="2" displayName="rsense_vanilla">
 				<Entry varId="doorGlow" value="true"/>
 				<Entry varId="posterGlow" value="true"/>
 				<Entry varId="clueGlow" value="2"/>

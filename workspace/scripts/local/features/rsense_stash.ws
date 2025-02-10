@@ -3,7 +3,7 @@
 class CRsenseStashGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'stashGlow';
-	default defaultValue = "false";
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

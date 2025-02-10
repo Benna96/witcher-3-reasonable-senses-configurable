@@ -3,7 +3,7 @@
 class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'noticeboardGlow';
-	default defaultValue = "false";
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
