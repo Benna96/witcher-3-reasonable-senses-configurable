@@ -29,8 +29,8 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 - General logic
   - Override `SetFocusModeVisibility` to maybe actually set to `FMV_None`, depending on active options
-    - `GetFocusModeVisibility` return the previously not-necessarily-set visibility to support code that uses the visibility for logic (e.g. All Containers Glow)
-    - Clue highlights *shouldn't* be affected
+    - `GetFocusModeVisibility` returns the previously not-necessarily-set visibility to support code that uses the visibility for logic (e.g. All Containers Glow)
+    - Clue highlights aren't affected, except with options that allow more than just on/off
     - ***Note***: `gameplayEntity.ws` changes aren't possible to do with annotations. They're super simple though & should automerge in the vast majority of cases.
   - Each of the mod's options has a corresponding option class, all listed in `CRsenseConfig`; functionality is split between the option class & vanilla code injections
 - Herb support
@@ -40,25 +40,27 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
   - Make as many changes as possible using [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations)
     - Not possible for everything, some scripts do need to be merged
 
-### Folder structure
+### Repo structure
 
-- `workspace` contains most content files.
-- `workspace_root` contains bin files & localization files.
-  - Localization files are much nicer to edit through a CSV than REDkit's Localized String Editor, imo.
+- One folder for each eventual `modX` folder
+  - Subfolders
+    - `redkit`: files that need to be packed into bundles or caches
+    - `scripts`: `*.ws` files, usually has `local` etc folders inside 
+    - `modmenu`: `*.xml` files, just files, they're put under `bin` by packer script
+    - `localization`: `*.csv` files
+  - `witcherscript.toml`: Enable usage with *WitcherScript IDE* (Visual Studio Code extension)
+  - `*.bat` files for packing & installing the mod
 
-### Packing the mod
+### Pack & install
 
-The packed mod is in a `packed` folder. This folder is not included in the repo as it's not source assets.
-
-1. Pack `workspace` files with REDkit.
-   - Packs files, generates `metadata.store,`, copies them + loose files.
-     - *Note*: This clears the `packed` folder beforehand, at least when using REDkit. You'll have to do step 2 again afterwards.
-   - **Not required if** only non-packable files (like scripts) have been edited, those can be copied on their own.
-   - Maybe WCCLite can be used, idk, haven't used it myself.
-2. Pack `workspace_root` by running `packroot.bat`.
-   - Copies scripts from `workspace`.
-   - Copies all files & encodes localization files.
-3. Zip up the **contents** of `packed` to make an archive you can install from.
+1. Have [`w3strings.exe`](https://www.nexusmods.com/witcher3/mods/1055) in *Path* environment variable
+2. For each top-level folder in the repo
+   1. If there's a `redkit` folder, open it in REDkit & cook the mod (or maybe use wcclite to do it)
+      - Only need to do it first time & when content changes
+   2. Run `pack.bat`
+   3. Change `gameDir` inside `updateinstall.bat` & run it
+   4. If the mod wasn't installed before, add it to `mods.settings`, `dx11filelist.txt`, and `dx12filelist.txt`
+      - I personally skip running `updateinstall.bat` the first time & instead zip up the generated `packed` folder & install with [Mod Manager](https://www.nexusmods.com/witcher3/mods/2678), later updating through `updateinstall.bat` as I'm working on it
 
 ## Usage
 
@@ -66,8 +68,7 @@ Install the mod as you would any other mod.
 I recommend using [The Witcher 3 Mod Manager](https://www.nexusmods.com/witcher3/mods/2678).
 - *Note*: The mod needs to be packed first, as it includes files that need to be in a bundle. I recommend downloading the mod from its Nexus Page.
 
-Ingame, go to Options, Mods, Reasonable Senses. Configure the options to your liking.
+Ingame, go to Options -> Mods -> Reasonable Senses. Configure the options to your liking.
 - ***Important note:*** If your Mods menu has over 9 menus in it, the ones later in the list don't work due to engine limitations.  
-You'll need to install [Community Patch - Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) and edit `modReasonableSenses.xml` to put Reasonable Senses Configurable in a submenu, see description of [Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) for instructions.  
-Reasonable Senses Configurable supports whichever submenu you pick; I pick *Visuals and Graphics*, myself (and plan to ship a version of the mod already under it).
-- ATM, you have to load a save after changing settings for them to apply.
+  You'll need to install [Community Patch - Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) and edit `modReasonableSenses.xml` to put Reasonable Senses Configurable in a submenu, see description of [Menu Strings](https://www.nexusmods.com/witcher3/mods/3650) for instructions.  
+  Reasonable Senses Configurable supports whichever submenu you pick; I pick *Visuals and Graphics*, myself (and plan to ship a version of the mod already under it).
