@@ -13,28 +13,18 @@ class CRsenseBuffStationGlowOption extends IRsenseGlowOption
 	}
 }
 
+/* ------------------------------ Option getter ----------------------------- */
+
+// Used in _mapPinEntities
+@addMethod( W3ItemRepairObject ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+{
+	return theGame.GetRsenseConfig().buffStationGlowOption;
+}
+
 /* ------------------------------ Registration ------------------------------ */
 
-@addField( W3ItemRepairObject )
-private var rsenseInitDone : bool;
 @wrapMethod( W3ItemRepairObject ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	theGame.GetRsenseConfig().buffStationGlowOption.RegisterEntity( this );
-}
-
-/* -------------------------- Visibility injection -------------------------- */
-
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addField( W3ItemRepairObject )
-private var cachedFocusModeVisiblity : EFocusModeVisibility;
-@addMethod( W3ItemRepairObject ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
-{
-	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().buffStationGlowOption );
-	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-}
-@addMethod( W3ItemRepairObject ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
-{
-	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
+	GetGlowOption().RegisterEntity( this );
 }

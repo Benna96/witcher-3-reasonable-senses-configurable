@@ -11,27 +11,19 @@ class CRsenseSignpostGlowOption extends IRsenseGlowOption
 	}
 }
 
+/* ------------------------------ Option getter ----------------------------- */
+
+// Used in _mapPinEntities
+@addMethod( W3FastTravelEntity ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+{
+	return theGame.GetRsenseConfig().signpostGlowOption;
+}
+
 /* -------------------------- Registration & bugfix ------------------------- */
 
 @wrapMethod( W3FastTravelEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
 	SetFocusModeVisibility( FMV_Interactive ); // Without this not all signposts glow
-	theGame.GetRsenseConfig().signpostGlowOption.RegisterEntity( this );
-}
-
-/* -------------------------- Visibility injection -------------------------- */
-
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addField( W3FastTravelEntity )
-private var cachedFocusModeVisiblity : EFocusModeVisibility;
-@addMethod( W3FastTravelEntity ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
-{
-	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().signpostGlowOption );
-	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-}
-@addMethod( W3FastTravelEntity ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
-{
-	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
+	GetGlowOption().RegisterEntity( this );
 }

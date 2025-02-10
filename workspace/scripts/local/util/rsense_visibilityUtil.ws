@@ -4,6 +4,11 @@
 // Call from SetFocusModeVisibility override
 function Rsense_MaybeNoVisibility( focusModeVisibility : EFocusModeVisibility, option : IRsenseGlowOption ) : EFocusModeVisibility
 {
+	if( !option )
+	{
+		return focusModeVisibility;
+	}
+	
 	if( focusModeVisibility & option.allowedVisibilities )
 	{
 		return focusModeVisibility;

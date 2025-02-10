@@ -11,35 +11,19 @@ class CRsenseStashGlowOption extends IRsenseGlowOption
 	}
 }
 
+/* ------------------------------ Option getter ----------------------------- */
+
+@addMethod( W3Stash ) protected function GetGlowOption() : IRsenseGlowOption
+{
+	return theGame.GetRsenseConfig().stashGlowOption;
+}
+
 /* ------------------------------ Registration ------------------------------ */
 
-// W3Stash doesn't define OnSpawned to wrap, & addMethod doesn't work with events
-// Init, called by OnSpawned, is also called from EnableEntity,
-// which makes me think it might run multiple times
-@addField( W3Stash )
-private var rsenseInitDone : bool;
-@addMethod( W3Stash ) function /* override */ Init()
+// W3Stash doesn't define OnSpawned to wrap, do it in InteractiveEntity instead
+// Put this in its own class if I add more InteractiveEntity classes
+@wrapMethod( CInteractiveEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	super.Init();
-
-	if( !rsenseInitDone )
-	{
-		theGame.GetRsenseConfig().stashGlowOption.RegisterEntity( this );
-	}
-}
-
-/* -------------------------- Visibility injection -------------------------- */
-
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addField( W3Stash )
-private var cachedFocusModeVisiblity : EFocusModeVisibility;
-@addMethod( W3Stash ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
-{
-	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().stashGlowOption );
-	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-}
-@addMethod( W3Stash ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
-{
-	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
+	wrappedMethod( spawnData );
+	GetGlowOption().RegisterEntity( this );
 }

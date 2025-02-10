@@ -7,9 +7,11 @@
 				<Entry varId="posterGlow" value="false"/>
 				<Entry varId="clueGlow" value="1"/>
 				<Entry varId="stashGlow" value="false"/>
+
 				<Entry varId="signpostGlow" value="false"/>
 				<Entry varId="noticeboardGlow" value="false"/>
 				<Entry varId="buffStationGlow" value="false"/>
+				
 				<Entry varId="herbGlow" value="false"/>
 				<Entry varId="beehiveGlow" value="false"/>
 				<Entry varId="corpseGlow" value="false"/>
@@ -20,9 +22,11 @@
 				<Entry varId="posterGlow" value="true"/>
 				<Entry varId="clueGlow" value="2"/>
 				<Entry varId="stashGlow" value="true"/>
+
 				<Entry varId="signpostGlow" value="true"/>
 				<Entry varId="noticeboardGlow" value="true"/>
 				<Entry varId="buffStationGlow" value="true"/>
+
 				<Entry varId="herbGlow" value="true"/>
 				<Entry varId="beehiveGlow" value="true"/>
 				<Entry varId="corpseGlow" value="true"/>
@@ -40,11 +44,13 @@
 				</OptionsArray>
 			</Var>
 			<Var id="stashGlow" displayName="rsense_stashesGlow" displayType="TOGGLE"/>
-			<Var id="_sep1" displayName="" displayType="SUBTLE_SEPARATOR"/>
+			<Var id="separator" displayName="" displayType="SUBTLE_SEPARATOR"/>
+
 			<Var id="signpostGlow" displayName="rsense_signpostsGlow" displayType="TOGGLE"/>
 			<Var id="noticeboardGlow" displayName="rsense_noticeboardsGlow" displayType="TOGGLE"/>
 			<Var id="buffStationGlow" displayName="rsense_workbenchesAndGrindstonesGlow" displayType="TOGGLE"/>
-			<Var id="_sep2" displayName="" displayType="SUBTLE_SEPARATOR"/>
+			<Var id="separator" displayName="" displayType="SUBTLE_SEPARATOR"/>
+			
 			<Var id="herbGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
 			<Var id="beehiveGlow" displayName="rsense_beehivesGlow" displayType="TOGGLE"/>
 			<Var id="corpseGlow" displayName="rsense_corpsesGlow" displayType="TOGGLE"/>

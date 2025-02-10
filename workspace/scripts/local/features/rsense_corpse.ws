@@ -13,8 +13,8 @@ class CRsenseCorpseGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _container, functionality done through there
-@addMethod( W3ActorRemains ) protected /* override */ function GetRelevantGlowOption() : IRsenseGlowOption
+// Used in _lockableEntities
+@addMethod( W3ActorRemains ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().corpseGlowOption;
 }

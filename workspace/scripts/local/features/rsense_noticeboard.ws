@@ -11,26 +11,18 @@ class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
 	}
 }
 
+/* ------------------------------ Option getter ----------------------------- */
+
+// Used in _mapPinEntities
+@addMethod( W3NoticeBoard ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+{
+	return theGame.GetRsenseConfig().noticeboardGlowOption;
+}
+
 /* ------------------------------ Registration ------------------------------ */
 
 @wrapMethod( W3NoticeBoard ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	theGame.GetRsenseConfig().noticeboardGlowOption.RegisterEntity( this );
-}
-
-/* -------------------------- Visibility injection -------------------------- */
-
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addField( W3NoticeBoard )
-private var cachedFocusModeVisiblity : EFocusModeVisibility;
-@addMethod( W3NoticeBoard ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
-{
-	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().noticeboardGlowOption );
-	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-}
-@addMethod( W3NoticeBoard ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
-{
-	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
+	GetGlowOption().RegisterEntity( this );
 }

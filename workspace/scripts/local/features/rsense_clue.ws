@@ -11,26 +11,18 @@ class CRsenseClueGlowOption extends IRsenseGlowOption
 	}
 }
 
+/* ------------------------------ Option getter ----------------------------- */
+
+// Used in _mapPinEntities
+@addMethod( W3MonsterClue ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+{
+	return theGame.GetRsenseConfig().clueGlowOption;
+}
+
 /* ------------------------------ Registration ------------------------------ */
 
 @wrapMethod( W3MonsterClue ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	theGame.GetRsenseConfig().clueGlowOption.RegisterEntity( this );
-}
-
-/* -------------------------- Visibility injection -------------------------- */
-
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addField( W3MonsterClue )
-private var cachedFocusModeVisiblity : EFocusModeVisibility;
-@addMethod( W3MonsterClue ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
-{
-	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().clueGlowOption );
-	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
-}
-@addMethod( W3MonsterClue ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
-{
-	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
+	GetGlowOption().RegisterEntity( this );
 }

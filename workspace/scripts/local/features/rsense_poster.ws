@@ -11,12 +11,19 @@ class CRsensePosterGlowOption extends IRsenseGlowOption
 	}
 }
 
+/* ------------------------------ Option getter ----------------------------- */
+
+@addMethod( W3Poster ) protected function GetGlowOption() : IRsenseGlowOption
+{
+	return theGame.GetRsenseConfig().posterGlowOption;
+}
+
 /* ------------------------------ Registration ------------------------------ */
 
 @wrapMethod( W3Poster ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	theGame.GetRsenseConfig().posterGlowOption.RegisterEntity( this );
+	GetGlowOption().RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */
@@ -27,7 +34,7 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( W3Poster ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, theGame.GetRsenseConfig().posterGlowOption );
+	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetGlowOption() );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
 @addMethod( W3Poster ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility

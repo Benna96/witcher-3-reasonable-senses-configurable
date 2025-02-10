@@ -27,35 +27,41 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _container, some visibility done through there
-@addMethod( W3Herb ) protected /* override */ function GetRelevantGlowOption() : IRsenseGlowOption
+// Used in _lockableEntities
+@addMethod( W3Herb ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().herbGlowOption;
 }
 
 /* ------------------------------ Registration ------------------------------ */
 
-// Usually done through _container, but herbs don't call super.OnSpawned
+// Usually done through _lockableEntities, but herbs don't call super.OnSpawned
 @wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetRelevantGlowOption().RegisterEntity( this );
+	GetGlowOption().RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */
 
 // Most herbs use foliage's entry instead of focusModeVisibility
+// (focusModeVisibility is handled by _lockableEntities)
 @wrapMethod( CSwitchableFoliageComponent ) function SetAndSaveEntry( entryName : name )
 {
 	var cachedEntryName : name;
+	var herb : W3Herb;
 
 	cachedEntryName = entryName;
+	herb = (W3Herb)GetEntity();
 
-	if( entryName == 'full' && (W3Herb)GetEntity() && !theGame.GetRsenseConfig().herbGlowOption.currentValue )
+	if( entryName == 'full' && herb && !RSense_HasFlag( herb.GetGlowOption().allowedVisibilities, FMV_Interactive ) )
 	{
 		entryName = 'fullnoglow';
 	}
 
 	wrappedMethod( entryName );
-	currEntryName = cachedEntryName; // To return the "set" visibility from GetEntry
+
+	// Instead of introducing a cached field like with FocusModeVisibility funcs,
+	// use the one that already exists in vanilla game & is used by GetEntry.
+	currEntryName = cachedEntryName;
 }

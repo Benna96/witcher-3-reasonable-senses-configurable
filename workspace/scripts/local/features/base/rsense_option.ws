@@ -10,7 +10,7 @@ abstract class IRsenseOption
 	protected var config : CInGameConfigWrapper;
 	protected var xmlType : string;
 
-	public var currentValue : string;
+	private var currentValue : string;
 
 	public function Init()
 	{
@@ -18,30 +18,31 @@ abstract class IRsenseOption
 
 		config = theGame.GetInGameConfigWrapper();
 		xmlType = config.GetVarDisplayType( xmlGroup, xmlId );
-		
-		configValue = config.GetVarValue( xmlGroup, xmlId );
-		if( StrLen( configValue ) == 0 )
-		{
-			config.SetVarValue( xmlGroup, xmlId, defaultValue );
-			configValue = defaultValue;
-		}
 
-		currentValue = configValue;
-		OnValueChanged( currentValue );
+		currentValue = GetValueFromConfig();
+		OnValueChanged(currentValue);
 	}
 
-	public final function Apply( force : bool )
+	public final function Apply()
 	{
-		var configValue : string;
-		var i : int;
+		currentValue = GetValueFromConfig();
+		OnValueChanged(currentValue);
 
-		configValue = config.GetVarValue( xmlGroup, xmlId );
-		if( force || ( configValue != currentValue ) )
+		Apply_Impl();
+	}
+
+	private function GetValueFromConfig() : string
+	{
+		var value : string;
+
+		value = config.GetVarValue( xmlGroup, xmlId );
+		if( StrLen( value ) == 0 )
 		{
-			currentValue = configValue;
-			OnValueChanged( currentValue );
-			Apply_Impl();
+			config.SetVarValue( xmlGroup, xmlId, defaultValue );
+			value = defaultValue;
 		}
+
+		return value;
 	}
 
 	protected function OnValueChanged( newValue : string ) {}
@@ -73,10 +74,8 @@ abstract class IRsenseOption
 
 	if( matchingOption )
 	{
-		matchingOption.Apply( true );
+		matchingOption.Apply();
 	}
-
-	LogChannel( 'ReasonableSenses', "OnOptionValueChanged: " + groupName + ", " + optionName + ", " + optionValue );
 }
 
 @wrapMethod( CR4IngameMenu ) function OnPresetApplied(groupId:name, targetPresetIndex:int)
@@ -91,7 +90,7 @@ abstract class IRsenseOption
 	{
 		if( options[ i ].xmlGroup == groupId )
 		{
-			options[ i ].Apply( false );
+			options[ i ].Apply();
 		}
 	}
 }

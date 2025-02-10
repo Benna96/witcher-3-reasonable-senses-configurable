@@ -13,8 +13,8 @@ class CRsenseBeehiveGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _container, functionality done through there
-@addMethod( CBeehiveEntity ) protected /* override */ function GetRelevantGlowOption() : IRsenseGlowOption
+// Used in _container
+@addMethod( CBeehiveEntity ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().beehiveGlowOption;
 }
