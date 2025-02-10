@@ -13,7 +13,7 @@ class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _mapPinEntities
+// Used in _entities
 @addMethod( W3NoticeBoard ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().noticeboardGlowOption;
@@ -21,6 +21,7 @@ class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Registration ------------------------------ */
 
+// Usually done in _entities, but noticeboards don't call super.OnSpawned
 @wrapMethod( W3NoticeBoard ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );

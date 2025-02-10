@@ -13,7 +13,7 @@ class CRsenseContainerGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _lockableEntities
+// Used in _entities
 // Override in supported container classes
 @addMethod( W3Container ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {

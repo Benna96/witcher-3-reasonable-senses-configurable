@@ -13,7 +13,7 @@ class CRsenseClueGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _mapPinEntities
+// Used in _entities
 @addMethod( W3MonsterClue ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().clueGlowOption;
@@ -21,6 +21,7 @@ class CRsenseClueGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Registration ------------------------------ */
 
+// Usually done in _entities, but clues don't call super.OnSpawned
 @wrapMethod( W3MonsterClue ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );

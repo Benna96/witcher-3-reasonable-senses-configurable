@@ -15,7 +15,7 @@ class CRsenseBuffStationGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _mapPinEntities
+// Used in _entities
 @addMethod( W3ItemRepairObject ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().buffStationGlowOption;
@@ -23,6 +23,7 @@ class CRsenseBuffStationGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Registration ------------------------------ */
 
+// Usually done in _entities, but buff stations don't call super.OnSpawned
 @wrapMethod( W3ItemRepairObject ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );

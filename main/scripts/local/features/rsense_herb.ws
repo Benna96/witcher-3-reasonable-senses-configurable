@@ -27,7 +27,7 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _lockableEntities
+// Used in _entities
 @addMethod( W3Herb ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().herbGlowOption;
@@ -35,7 +35,7 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Registration ------------------------------ */
 
-// Usually done through _lockableEntities, but herbs don't call super.OnSpawned
+// Usually done in _entities, but herbs don't call super.OnSpawned
 @wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );

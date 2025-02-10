@@ -13,6 +13,7 @@ class CRsenseStashGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
+// Used in _entities
 @addMethod( W3Stash ) protected function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().stashGlowOption;
@@ -20,7 +21,8 @@ class CRsenseStashGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Registration ------------------------------ */
 
-// W3Stash doesn't define OnSpawned to wrap, do it in InteractiveEntity instead
+// Usually done in _entities, but stashes don't call super.OnSpawned
+// In fact, stashes don't define OnSpawned at all, use InteractiveEntity instead
 // Put this in its own class if I add more InteractiveEntity classes
 @wrapMethod( CInteractiveEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {

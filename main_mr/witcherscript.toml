@@ -1,6 +1,6 @@
 # Basic information about this project
 [content]
-name = "ReasonableSensesConfigurable"
+name = "ReasonableSensesConfigurable_Mr"
 description = ""
 version = "1.0.0"
 authors = []
@@ -10,7 +10,6 @@ scripts_root = "scripts"
 # Any dependencies that this project might need
 [dependencies]
 content0 = true
-ReasonableSensesConfigurable_Mr = { path = "../main_mr" }
 
 # For details check the manual
 # https://spontancombust.github.io/witcherscript-ide/user-manual/project-system/#manifest-format

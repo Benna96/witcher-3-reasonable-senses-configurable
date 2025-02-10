@@ -38,7 +38,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
   - Override `foliageComponent.SetAndSaveEntry` to maybe set it to `fullnoglow`, depending on active options
 - Compatibility
   - Make as many changes as possible using [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations)
-    - Not possible for everything, some scripts do need to be merged
+    - Not possible for everything, some scripts do need to be merged. All such scripts are put inside a `*_mr` folder (standing for 'merge required').
 
 ### Repo structure
 

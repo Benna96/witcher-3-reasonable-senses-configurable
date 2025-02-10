@@ -13,7 +13,7 @@ class CRsenseSignpostGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _mapPinEntities
+// Used in _entities
 @addMethod( W3FastTravelEntity ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().signpostGlowOption;
@@ -21,9 +21,9 @@ class CRsenseSignpostGlowOption extends IRsenseGlowOption
 
 /* -------------------------- Registration & bugfix ------------------------- */
 
+// Bugfix only, rest is done in _entities
 @wrapMethod( W3FastTravelEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
 	SetFocusModeVisibility( FMV_Interactive ); // Without this not all signposts glow
-	GetGlowOption().RegisterEntity( this );
 }

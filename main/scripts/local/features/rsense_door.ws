@@ -16,7 +16,7 @@ class CRsenseDoorGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _lockableEntities
+// Used in _entities
 @addMethod( W3Door ) protected function GetGlowOption() : IRsenseGlowOption
 {
 	return theGame.GetRsenseConfig().doorGlowOption;

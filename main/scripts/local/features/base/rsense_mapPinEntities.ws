@@ -1,12 +1,6 @@
 /* ------------------- Shared map pin entity functionality ------------------ */
 /*                         To reduce code duplication                         */
 
-// Override in supported classes
-@addMethod( CR4MapPinEntity ) protected function GetGlowOption() : IRsenseGlowOption
-{
-	return NULL;
-}
-
 // Don't override in supported classes
 // Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
 @addField( CR4MapPinEntity )
