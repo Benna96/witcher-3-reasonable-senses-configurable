@@ -3,7 +3,6 @@
 abstract class IRsenseOption
 {
 	public const var xmlGroup : name;
-		default xmlGroup = 'ReasonableSenses';
 	public const var xmlId : name;
 
 	protected var config : CInGameConfigWrapper;

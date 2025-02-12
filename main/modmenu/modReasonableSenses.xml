@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <UserConfig>
-	<Group id="ReasonableSenses" displayName="Mods.rsense">
+	<Group id="rsenseGlow" displayName="Mods.rsense">
 		<PresetsArray>
 			<Preset id="0" displayName="rsense_default">
 				<Entry varId="doorGlow" value="false"/>

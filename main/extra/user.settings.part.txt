@@ -1,4 +1,4 @@
-[ReasonableSenses]
+[rsenseGlow]
 doorGlow=false
 posterGlow=false
 clueGlow=1

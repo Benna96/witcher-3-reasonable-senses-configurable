@@ -2,6 +2,8 @@
 
 abstract class IRsenseGlowOption extends IRsenseOption
 {
+	default xmlGroup = 'rsenseGlow';
+
 	public var allowedVisibilities : int; // Flag version of EFocusModeVisibility, fmv has so few values that they work as flags as is
 	protected var entities : array< CGameplayEntity >;
 
