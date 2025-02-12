@@ -3,7 +3,6 @@
 class CRsenseClueGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'clueGlow';
-	default defaultValue = "1";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

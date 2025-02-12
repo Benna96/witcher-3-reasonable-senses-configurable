@@ -3,7 +3,6 @@
 class CRsenseHerbGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'herbGlow';
-	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

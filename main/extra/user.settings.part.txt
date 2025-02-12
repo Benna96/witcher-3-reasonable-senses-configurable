@@ -1,0 +1,12 @@
+[ReasonableSenses]
+doorGlow=false
+posterGlow=false
+clueGlow=1
+stashGlow=true
+signpostGlow=true
+noticeboardGlow=true
+buffStationGlow=true
+herbGlow=false
+beehiveGlow=true
+corpseGlow=false
+containerGlow=false

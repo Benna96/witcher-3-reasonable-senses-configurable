@@ -3,7 +3,6 @@
 class CRsensePosterGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'posterGlow';
-	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

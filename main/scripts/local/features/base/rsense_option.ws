@@ -5,7 +5,6 @@ abstract class IRsenseOption
 	public const var xmlGroup : name;
 		default xmlGroup = 'ReasonableSenses';
 	public const var xmlId : name;
-	protected const var defaultValue : string;
 
 	protected var config : CInGameConfigWrapper;
 	protected var xmlType : string;
@@ -19,30 +18,16 @@ abstract class IRsenseOption
 		config = theGame.GetInGameConfigWrapper();
 		xmlType = config.GetVarDisplayType( xmlGroup, xmlId );
 
-		currentValue = GetValueFromConfig();
+		currentValue = config.GetVarValue( xmlGroup, xmlId );
 		OnValueChanged(currentValue);
 	}
 
 	public final function Apply()
 	{
-		currentValue = GetValueFromConfig();
+		currentValue = config.GetVarValue( xmlGroup, xmlId );
 		OnValueChanged(currentValue);
 
 		Apply_Impl();
-	}
-
-	private function GetValueFromConfig() : string
-	{
-		var value : string;
-
-		value = config.GetVarValue( xmlGroup, xmlId );
-		if( StrLen( value ) == 0 )
-		{
-			config.SetVarValue( xmlGroup, xmlId, defaultValue );
-			value = defaultValue;
-		}
-
-		return value;
 	}
 
 	protected function OnValueChanged( newValue : string ) {}

@@ -3,7 +3,6 @@
 class CRsenseContainerGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'containerGlow';
-	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

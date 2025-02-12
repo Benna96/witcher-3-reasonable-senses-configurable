@@ -3,7 +3,6 @@
 class CRsenseBeehiveGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'beehiveGlow';
-	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

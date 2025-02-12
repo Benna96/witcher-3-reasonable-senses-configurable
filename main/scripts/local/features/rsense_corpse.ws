@@ -3,7 +3,6 @@
 class CRsenseCorpseGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'corpseGlow';
-	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

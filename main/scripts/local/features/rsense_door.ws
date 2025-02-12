@@ -6,7 +6,6 @@
 class CRsenseDoorGlowOption extends IRsenseGlowOption
 {
 	default xmlId = 'doorGlow';
-	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

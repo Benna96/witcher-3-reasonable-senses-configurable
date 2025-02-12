@@ -38,3 +38,5 @@ if exist localization (
 	cd ..
 	robocopy "localization" "packed\mods\%mod%\content" "*.w3strings" /mov /purge > nul
 )
+
+if exist extra robocopy "extra" "packed\mods\%mod%" > nul

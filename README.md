@@ -50,6 +50,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
     - `scripts`: `*.ws` files, usually has `local` etc folders inside 
     - `modmenu`: `*.xml` files, just files, they're put under `bin` by packer script
     - `localization`: `*.csv` files
+    - `extra`: other files, like `README`, `user.settings.part`, etc
   - `witcherscript.toml`: Enable usage with *WitcherScript IDE* (Visual Studio Code extension)
   - `*.bat` files for packing & installing the mod
 
