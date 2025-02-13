@@ -2,7 +2,7 @@
 /* Shared functionality to be called from elsewhere to reduce code duplication */
 
 // Call from SetFocusModeVisibility override
-function Rsense_MaybeNoVisibility( focusModeVisibility : EFocusModeVisibility, option : IRsenseGlowOption ) : EFocusModeVisibility
+function Rsense_MaybeNoVisibility( focusModeVisibility : EFocusModeVisibility, option : IRsenseHighlightOption ) : EFocusModeVisibility
 {
 	if( !option )
 	{

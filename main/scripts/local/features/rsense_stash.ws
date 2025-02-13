@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseStashGlowOption extends IRsenseGlowOption
+class CRsenseStashHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'stashGlow';
+	default xmlId = 'stashHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -13,9 +13,9 @@ class CRsenseStashGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3Stash ) protected function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3Stash ) protected function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().stashGlowOption;
+	return theGame.GetRsenseConfig().stashHighlightOption;
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -26,5 +26,5 @@ class CRsenseStashGlowOption extends IRsenseGlowOption
 @wrapMethod( CInteractiveEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetGlowOption().RegisterEntity( this );
+	GetHighlightOption().RegisterEntity( this );
 }

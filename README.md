@@ -6,20 +6,20 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 ## Changes from predecessor
 
-- Glow for each supported type of object is configurable from a mod menu
+- Highlight for each supported type of object is configurable from a mod menu
 - Support herbs
 - Support signpost ( & fix visibility bug )
 - Support stash
 - Support workbenches & grindstones
-- Support clues (note, clue glow still shows up, this hides interactive glow)
+- Support clues (note, clue highlight still shows up, this hides interactive highlight)
 - Support some types of containers separately from other containers
 
 ## Mod compatibility
 
-- Friendly Focus: When 'Fade Transition' option is off, objects that you've set to not glow may glow for a split second on the first time you focus after a loading screen
+- Friendly Focus: When 'Fade Transition' option is off, objects that you've set to not highlight may get highlighted for a split second on the first time you focus after a loading screen
   - Couldn't solve this
     - Vanilla's slower transition only hides the issue, & lengthening Friendly Focus' quicker transition time wouldn't help consistently as I think it depends on the object's distance from camera as well
-  - Something that'd edit out the glow's trailing effect might fix it. (Trailing effect meaning, when you move the camera around, old glow chills around for a bit.)
+  - Something that'd edit out the highlight's trailing effect might fix it. (Trailing effect meaning, when you move the camera around, old highlight chills around for a bit.)
     - Most likely would need a shader edit, which seems close to if not impossible
     - Or, it's a particle effect, but going through a bunch of `.w2p` files with even the most slightly related names, none affected it. Wonder if there's ones not exposed to REDkit... Editing monster ripple ones worked just fine.
 
@@ -34,8 +34,8 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
     - ***Note***: `gameplayEntity.ws` changes aren't possible to do with annotations. They're super simple though & should automerge in the vast majority of cases.
   - Each of the mod's options has a corresponding option class, all listed in `CRsenseConfig`; functionality is split between the option class & vanilla code injections
 - Herb support
-  - `_noglow` variants of herb `srt`s (removed `InteractiveOn` string), & an entry called `fullnoglow` to these in corresponding `w2sf` files
-  - Override `foliageComponent.SetAndSaveEntry` to maybe set it to `fullnoglow`, depending on active options
+  - `_nohighlight` variants of herb `srt`s (removed `InteractiveOn` string), & an entry called `full_nohighlight` to these in corresponding `w2sf` files
+  - Override `foliageComponent.SetAndSaveEntry` to maybe set it to `full_nohighlight`, depending on active options
 - Compatibility
   - Make as many changes as possible using [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations)
     - Not possible for everything, some scripts do need to be merged. All such scripts are put inside a `*_mr` folder (standing for 'merge required').

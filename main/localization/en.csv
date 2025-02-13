@@ -24,23 +24,23 @@
 ;-------------------------------------------------------------------------------
 ;
 ;----------------------------------- Options -----------------------------------
-2113377030||option_rsense_doorsGlow|Doors glow
-2113377031||option_rsense_postersGlow|Posters glow
-2113377032||option_rsense_cluesGlow|Clues glow
-2113377033||option_rsense_stashesGlow|Stashes glow
+2113377030||option_rsense_doorsHighlight|Highlight doors
+2113377031||option_rsense_postersHighlight|Highlight posters
+2113377032||option_rsense_cluesHighlight|Highlight clues
+2113377033||option_rsense_stashesHighlight|Highlight stashes
 ;
-2113377040||option_rsense_signpostsGlow|Signposts glow
-2113377041||option_rsense_noticeboardsGlow|Noticeboards glow
-2113377042||option_rsense_workbenchesAndGrindstonesGlow|Workbenches & grindstones glow
+2113377040||option_rsense_signpostsHighlight|Highlight signposts
+2113377041||option_rsense_noticeboardsHighlight|Highlight noticeboards
+2113377042||option_rsense_workbenchesAndGrindstonesHighlight|Highlight workbenches & grindstones
 ;
-2113377050||option_rsense_herbsGlow|Herbs glow
-2113377051||option_rsense_beehivesGlow|Beehives glow
-2113377052||option_rsense_otherContainersGlow|Other containers glow
-2113377053||option_rsense_corpsesGlow|Corpses glow
+2113377050||option_rsense_herbsHighlight|Highlight herbs
+2113377051||option_rsense_beehivesHighlight|Highlight beehives
+2113377052||option_rsense_otherContainersHighlight|Highlight other containers
+2113377053||option_rsense_corpsesHighlight|Highlight corpses
 ;-------------------------------------------------------------------------------
 ;
 ;----------------------------- Option array items ------------------------------
-2113377060||preset_value_rsense_glow_Never|Never
-2113377061||preset_value_rsense_glow_UnexaminedOnly|Only when unexamined
-2113377062||preset_value_rsense_glow_Always|Always
+2113377060||preset_value_rsense_highlight_Never|Never
+2113377061||preset_value_rsense_highlight_UnexaminedOnly|Only when unexamined
+2113377062||preset_value_rsense_highlight_Always|Always
 ;-------------------------------------------------------------------------------

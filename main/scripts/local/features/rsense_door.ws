@@ -3,9 +3,9 @@
 
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseDoorGlowOption extends IRsenseGlowOption
+class CRsenseDoorHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'doorGlow';
+	default xmlId = 'doorHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -16,11 +16,11 @@ class CRsenseDoorGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3Door ) protected function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3Door ) protected function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().doorGlowOption;
+	return theGame.GetRsenseConfig().doorHighlightOption;
 }
-@addMethod( W3NewDoor ) protected function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3NewDoor ) protected function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().doorGlowOption;
+	return theGame.GetRsenseConfig().doorHighlightOption;
 }

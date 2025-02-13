@@ -2,9 +2,9 @@
 
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseBuffStationGlowOption extends IRsenseGlowOption
+class CRsenseBuffStationHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'buffStationGlow';
+	default xmlId = 'buffStationHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -15,9 +15,9 @@ class CRsenseBuffStationGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3ItemRepairObject ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3ItemRepairObject ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().buffStationGlowOption;
+	return theGame.GetRsenseConfig().buffStationHighlightOption;
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -26,5 +26,5 @@ class CRsenseBuffStationGlowOption extends IRsenseGlowOption
 @wrapMethod( W3ItemRepairObject ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetGlowOption().RegisterEntity( this );
+	GetHighlightOption().RegisterEntity( this );
 }

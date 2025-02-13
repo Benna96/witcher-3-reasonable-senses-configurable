@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsensePosterGlowOption extends IRsenseGlowOption
+class CRsensePosterHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'posterGlow';
+	default xmlId = 'posterHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -12,9 +12,9 @@ class CRsensePosterGlowOption extends IRsenseGlowOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-@addMethod( W3Poster ) protected function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3Poster ) protected function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().posterGlowOption;
+	return theGame.GetRsenseConfig().posterHighlightOption;
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -23,7 +23,7 @@ class CRsensePosterGlowOption extends IRsenseGlowOption
 @wrapMethod( W3Poster ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetGlowOption().RegisterEntity( this );
+	GetHighlightOption().RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */
@@ -34,7 +34,7 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( W3Poster ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetGlowOption() );
+	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetHighlightOption() );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
 @addMethod( W3Poster ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility

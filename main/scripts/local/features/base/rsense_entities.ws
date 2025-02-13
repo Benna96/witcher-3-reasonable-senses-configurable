@@ -2,7 +2,7 @@
 /*                         To reduce code duplication                         */
 
 // Override in supported classes
-@addMethod( CGameplayEntity ) protected function GetGlowOption() : IRsenseGlowOption
+@addMethod( CGameplayEntity ) protected function GetHighlightOption() : IRsenseHighlightOption
 {
 	return NULL;
 }
@@ -11,7 +11,7 @@
 @wrapMethod( CGameplayEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetGlowOption().RegisterEntity( this );
+	GetHighlightOption().RegisterEntity( this );
 }
 
 // Can't wrap SetFocusModeVisibility, sadly. Can't be done for imported functions.

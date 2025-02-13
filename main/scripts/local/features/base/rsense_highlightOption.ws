@@ -1,8 +1,8 @@
-/* ----------------------- Base class for glow options ---------------------- */
+/* ----------------------- Base class for highlight options ---------------------- */
 
-abstract class IRsenseGlowOption extends IRsenseOption
+abstract class IRsenseHighlightOption extends IRsenseOption
 {
-	default xmlGroup = 'rsenseGlow';
+	default xmlGroup = 'rsenseHighlight';
 
 	public var allowedVisibilities : int; // Flag version of EFocusModeVisibility, fmv has so few values that they work as flags as is
 	protected var entities : array< CGameplayEntity >;
@@ -25,11 +25,11 @@ abstract class IRsenseGlowOption extends IRsenseOption
 		else if( xmlType == "OPTIONS" )
 		{
 			option = config.GetVarOption( xmlGroup, xmlId, (int)newValue );
-			if( option == "rsense_glow_UnexaminedOnly" || option == "rsense_glow_Always" )
+			if( option == "rsense_highlight_UnexaminedOnly" || option == "rsense_highlight_Always" )
 			{
 				allowedVisibilities |= FMV_Clue;
 			}
-			if( option == "rsense_glow_Always" )
+			if( option == "rsense_highlight_Always" )
 			{
 				allowedVisibilities |= FMV_Interactive;
 			}
@@ -89,22 +89,22 @@ abstract class IRsenseGlowOption extends IRsenseOption
 	protected function IsSupportedEntity( entity : CGameplayEntity ) : bool;
 }
 
-/* ----------------------- Glow option state handling ----------------------- */
+/* ----------------------- Highlight option state handling ----------------------- */
 
 @wrapMethod( CR4IngameMenu ) function LoadSaveRequested(saveSlotRef : SSavegameInfo) : void
 {
-	Rsense_ClearGlowOptionEntities();
+	Rsense_ClearHighlightOptionEntities();
 	wrappedMethod( saveSlotRef ); 
 }
 @wrapMethod( CR4CommonMainMenuBase ) function OnConfigUI()
 {
 	// Doesn't matter much, cleared in LoadSave too
 	// Just reduces unnecessary work when changing mod settings in main menu
-	Rsense_ClearGlowOptionEntities();
+	Rsense_ClearHighlightOptionEntities();
 	wrappedMethod();
 }
 
-function Rsense_ClearGlowOptionEntities()
+function Rsense_ClearHighlightOptionEntities()
 {
 	var options : array< IRsenseOption >;
 	var i : int;
@@ -112,7 +112,7 @@ function Rsense_ClearGlowOptionEntities()
 	options = theGame.GetRsenseConfig().GetAllOptions();
 	for( i = 0; i < options.Size(); i += 1 )
 	{
-		if( (IRsenseGlowOption)options[ i ] )
-			((IRsenseGlowOption)options[ i ]).ClearEntities();
+		if( (IRsenseHighlightOption)options[ i ] )
+			((IRsenseHighlightOption)options[ i ]).ClearEntities();
 	}
 }

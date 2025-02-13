@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseClueGlowOption extends IRsenseGlowOption
+class CRsenseClueHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'clueGlow';
+	default xmlId = 'clueHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -13,9 +13,9 @@ class CRsenseClueGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3MonsterClue ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3MonsterClue ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().clueGlowOption;
+	return theGame.GetRsenseConfig().clueHighlightOption;
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -24,5 +24,5 @@ class CRsenseClueGlowOption extends IRsenseGlowOption
 @wrapMethod( W3MonsterClue ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetGlowOption().RegisterEntity( this );
+	GetHighlightOption().RegisterEntity( this );
 }

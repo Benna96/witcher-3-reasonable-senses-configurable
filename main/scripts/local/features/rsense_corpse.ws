@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseCorpseGlowOption extends IRsenseGlowOption
+class CRsenseCorpseHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'corpseGlow';
+	default xmlId = 'corpseHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -13,7 +13,7 @@ class CRsenseCorpseGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3ActorRemains ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3ActorRemains ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().corpseGlowOption;
+	return theGame.GetRsenseConfig().corpseHighlightOption;
 }

@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseSignpostGlowOption extends IRsenseGlowOption
+class CRsenseSignpostHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'signpostGlow';
+	default xmlId = 'signpostHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -13,9 +13,9 @@ class CRsenseSignpostGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3FastTravelEntity ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3FastTravelEntity ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().signpostGlowOption;
+	return theGame.GetRsenseConfig().signpostHighlightOption;
 }
 
 /* -------------------------- Registration & bugfix ------------------------- */
@@ -24,5 +24,5 @@ class CRsenseSignpostGlowOption extends IRsenseGlowOption
 @wrapMethod( W3FastTravelEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	SetFocusModeVisibility( FMV_Interactive ); // Without this not all signposts glow
+	SetFocusModeVisibility( FMV_Interactive ); // Without this not all signposts are highlighted
 }

@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseHerbGlowOption extends IRsenseGlowOption
+class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'herbGlow';
+	default xmlId = 'herbHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -27,9 +27,9 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3Herb ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3Herb ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().herbGlowOption;
+	return theGame.GetRsenseConfig().herbHighlightOption;
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -38,7 +38,7 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 @wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetGlowOption().RegisterEntity( this );
+	GetHighlightOption().RegisterEntity( this );
 }
 
 /* -------------------------- Visibility injection -------------------------- */
@@ -53,9 +53,9 @@ class CRsenseHerbGlowOption extends IRsenseGlowOption
 	cachedEntryName = entryName;
 	herb = (W3Herb)GetEntity();
 
-	if( entryName == 'full' && herb && !RSense_HasFlag( herb.GetGlowOption().allowedVisibilities, FMV_Interactive ) )
+	if( entryName == 'full' && herb && !RSense_HasFlag( herb.GetHighlightOption().allowedVisibilities, FMV_Interactive ) )
 	{
-		entryName = 'fullnoglow';
+		entryName = 'full_nohighlight';
 	}
 
 	wrappedMethod( entryName );

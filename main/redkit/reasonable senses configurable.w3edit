@@ -1,9 +1,9 @@
 {
     "name": "reasonable senses configurable",
     "modName": "Reasonable Senses Configurable",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "gameVersion": "",
-    "description": "Configurable version (through mod menu) of Reasonable Senses.\nNow with herbs!",
+    "description": "Configurable version (through mod menu) of Reasonable Senses.",
     "thumbnail": "",
     "author": "",
     "idSpace": 10000000,

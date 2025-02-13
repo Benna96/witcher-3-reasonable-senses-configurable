@@ -8,7 +8,7 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( W3LockableEntity ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetGlowOption() );
+	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetHighlightOption() );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
 @addMethod( W3LockableEntity ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility

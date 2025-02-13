@@ -8,7 +8,7 @@ private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( CR4MapPinEntity ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
 	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetGlowOption() );
+	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetHighlightOption() );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
 @addMethod( CR4MapPinEntity ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility

@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
+class CRsenseNoticeboardHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'noticeboardGlow';
+	default xmlId = 'noticeboardHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -13,9 +13,9 @@ class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3NoticeBoard ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3NoticeBoard ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().noticeboardGlowOption;
+	return theGame.GetRsenseConfig().noticeboardHighlightOption;
 }
 
 /* ------------------------------ Registration ------------------------------ */
@@ -24,5 +24,5 @@ class CRsenseNoticeboardGlowOption extends IRsenseGlowOption
 @wrapMethod( W3NoticeBoard ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	wrappedMethod( spawnData );
-	GetGlowOption().RegisterEntity( this );
+	GetHighlightOption().RegisterEntity( this );
 }

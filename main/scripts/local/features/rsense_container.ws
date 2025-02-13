@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseContainerGlowOption extends IRsenseGlowOption
+class CRsenseContainerHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'containerGlow';
+	default xmlId = 'containerHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -14,7 +14,7 @@ class CRsenseContainerGlowOption extends IRsenseGlowOption
 
 // Used in _entities
 // Override in supported container classes
-@addMethod( W3Container ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( W3Container ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().containerGlowOption;
+	return theGame.GetRsenseConfig().containerHighlightOption;
 }

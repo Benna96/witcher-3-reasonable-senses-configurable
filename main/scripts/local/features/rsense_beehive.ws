@@ -1,8 +1,8 @@
 /* ------------------------------ Option class ------------------------------ */
 
-class CRsenseBeehiveGlowOption extends IRsenseGlowOption
+class CRsenseBeehiveHighlightOption extends IRsenseHighlightOption
 {
-	default xmlId = 'beehiveGlow';
+	default xmlId = 'beehiveHighlight';
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
@@ -13,7 +13,7 @@ class CRsenseBeehiveGlowOption extends IRsenseGlowOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( CBeehiveEntity ) protected /* override */ function GetGlowOption() : IRsenseGlowOption
+@addMethod( CBeehiveEntity ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
 {
-	return theGame.GetRsenseConfig().beehiveGlowOption;
+	return theGame.GetRsenseConfig().beehiveHighlightOption;
 }

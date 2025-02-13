@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <UserConfig>
-	<Group id="rsenseGlow" displayName="Mods.rsense">
+	<Group id="rsenseHighlight" displayName="Mods.rsense">
 		<PresetsArray>
 			<Preset id="0" displayName="rsense_default">
-				<Entry varId="doorGlow" value="false"/>
-				<Entry varId="posterGlow" value="false"/>
-				<Entry varId="clueGlow" value="1"/>
-				<Entry varId="stashGlow" value="true"/>
+				<Entry varId="doorHighlight" value="false"/>
+				<Entry varId="posterHighlight" value="false"/>
+				<Entry varId="clueHighlight" value="1"/>
+				<Entry varId="stashHighlight" value="true"/>
 
-				<Entry varId="signpostGlow" value="true"/>
-				<Entry varId="noticeboardGlow" value="true"/>
-				<Entry varId="buffStationGlow" value="true"/>
+				<Entry varId="signpostHighlight" value="true"/>
+				<Entry varId="noticeboardHighlight" value="true"/>
+				<Entry varId="buffStationHighlight" value="true"/>
 				
-				<Entry varId="herbGlow" value="false"/>
-				<Entry varId="beehiveGlow" value="true"/>
-				<Entry varId="corpseGlow" value="false"/>
-				<Entry varId="containerGlow" value="false"/>
+				<Entry varId="herbHighlight" value="false"/>
+				<Entry varId="beehiveHighlight" value="true"/>
+				<Entry varId="corpseHighlight" value="false"/>
+				<Entry varId="containerHighlight" value="false"/>
 			</Preset>
 			<Preset id="1" displayName="rsense_minimalist">
-				<Entry varId="doorGlow" value="false"/>
-				<Entry varId="posterGlow" value="false"/>
-				<Entry varId="clueGlow" value="1"/>
-				<Entry varId="stashGlow" value="false"/>
+				<Entry varId="doorHighlight" value="false"/>
+				<Entry varId="posterHighlight" value="false"/>
+				<Entry varId="clueHighlight" value="1"/>
+				<Entry varId="stashHighlight" value="false"/>
 
-				<Entry varId="signpostGlow" value="false"/>
-				<Entry varId="noticeboardGlow" value="false"/>
-				<Entry varId="buffStationGlow" value="false"/>
+				<Entry varId="signpostHighlight" value="false"/>
+				<Entry varId="noticeboardHighlight" value="false"/>
+				<Entry varId="buffStationHighlight" value="false"/>
 				
-				<Entry varId="herbGlow" value="false"/>
-				<Entry varId="beehiveGlow" value="false"/>
-				<Entry varId="corpseGlow" value="false"/>
-				<Entry varId="containerGlow" value="false"/>
+				<Entry varId="herbHighlight" value="false"/>
+				<Entry varId="beehiveHighlight" value="false"/>
+				<Entry varId="corpseHighlight" value="false"/>
+				<Entry varId="containerHighlight" value="false"/>
 			</Preset>
 			<Preset id="2" displayName="rsense_vanilla">
-				<Entry varId="doorGlow" value="true"/>
-				<Entry varId="posterGlow" value="true"/>
-				<Entry varId="clueGlow" value="2"/>
-				<Entry varId="stashGlow" value="true"/>
+				<Entry varId="doorHighlight" value="true"/>
+				<Entry varId="posterHighlight" value="true"/>
+				<Entry varId="clueHighlight" value="2"/>
+				<Entry varId="stashHighlight" value="true"/>
 
-				<Entry varId="signpostGlow" value="true"/>
-				<Entry varId="noticeboardGlow" value="true"/>
-				<Entry varId="buffStationGlow" value="true"/>
+				<Entry varId="signpostHighlight" value="true"/>
+				<Entry varId="noticeboardHighlight" value="true"/>
+				<Entry varId="buffStationHighlight" value="true"/>
 
-				<Entry varId="herbGlow" value="true"/>
-				<Entry varId="beehiveGlow" value="true"/>
-				<Entry varId="corpseGlow" value="true"/>
-				<Entry varId="containerGlow" value="true"/>
+				<Entry varId="herbHighlight" value="true"/>
+				<Entry varId="beehiveHighlight" value="true"/>
+				<Entry varId="corpseHighlight" value="true"/>
+				<Entry varId="containerHighlight" value="true"/>
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
-			<Var id="doorGlow" displayName="rsense_doorsGlow" displayType="TOGGLE"/>
-			<Var id="posterGlow" displayName="rsense_postersGlow" displayType="TOGGLE"/>
-			<Var id="clueGlow" displayName="rsense_cluesGlow" displayType="OPTIONS">
+			<Var id="doorHighlight" displayName="rsense_doorsHighlight" displayType="TOGGLE"/>
+			<Var id="posterHighlight" displayName="rsense_postersHighlight" displayType="TOGGLE"/>
+			<Var id="clueHighlight" displayName="rsense_cluesHighlight" displayType="OPTIONS">
 				<OptionsArray>
-					<Option id="0" displayName="rsense_glow_Never"><Entry varId="clueGlow" value="0"/></Option>
-					<Option id="1" displayName="rsense_glow_UnexaminedOnly"><Entry varId="clueGlow" value="1"/></Option>
-					<Option id="2" displayName="rsense_glow_Always"><Entry varId="clueGlow" value="2"/></Option>
+					<Option id="0" displayName="rsense_highlight_Never"><Entry varId="clueHighlight" value="0"/></Option>
+					<Option id="1" displayName="rsense_highlight_UnexaminedOnly"><Entry varId="clueHighlight" value="1"/></Option>
+					<Option id="2" displayName="rsense_highlight_Always"><Entry varId="clueHighlight" value="2"/></Option>
 				</OptionsArray>
 			</Var>
-			<Var id="stashGlow" displayName="rsense_stashesGlow" displayType="TOGGLE"/>
+			<Var id="stashHighlight" displayName="rsense_stashesHighlight" displayType="TOGGLE"/>
 			<Var id="separator" displayName="" displayType="SUBTLE_SEPARATOR"/>
 
-			<Var id="signpostGlow" displayName="rsense_signpostsGlow" displayType="TOGGLE"/>
-			<Var id="noticeboardGlow" displayName="rsense_noticeboardsGlow" displayType="TOGGLE"/>
-			<Var id="buffStationGlow" displayName="rsense_workbenchesAndGrindstonesGlow" displayType="TOGGLE"/>
+			<Var id="signpostHighlight" displayName="rsense_signpostsHighlight" displayType="TOGGLE"/>
+			<Var id="noticeboardHighlight" displayName="rsense_noticeboardsHighlight" displayType="TOGGLE"/>
+			<Var id="buffStationHighlight" displayName="rsense_workbenchesAndGrindstonesHighlight" displayType="TOGGLE"/>
 			<Var id="separator" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			
-			<Var id="herbGlow" displayName="rsense_herbsGlow" displayType="TOGGLE"/>
-			<Var id="beehiveGlow" displayName="rsense_beehivesGlow" displayType="TOGGLE"/>
-			<Var id="corpseGlow" displayName="rsense_corpsesGlow" displayType="TOGGLE"/>
-			<Var id="containerGlow" displayName="rsense_otherContainersGlow" displayType="TOGGLE"/>
+			<Var id="herbHighlight" displayName="rsense_herbsHighlight" displayType="TOGGLE"/>
+			<Var id="beehiveHighlight" displayName="rsense_beehivesHighlight" displayType="TOGGLE"/>
+			<Var id="corpseHighlight" displayName="rsense_corpsesHighlight" displayType="TOGGLE"/>
+			<Var id="containerHighlight" displayName="rsense_otherContainersHighlight" displayType="TOGGLE"/>
 		</VisibleVars>
 	</Group>
 </UserConfig>

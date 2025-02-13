@@ -3,45 +3,45 @@
 class CRsenseConfig
 {
 	private var options : array< IRsenseOption >;
-	public var signpostGlowOption : CRsenseSignpostGlowOption;
-	public var noticeboardGlowOption : CRsenseNoticeboardGlowOption;
-	public var buffStationGlowOption : CRsenseBuffStationGlowOption;
-	public var clueGlowOption : CRsenseClueGlowOption;
-	public var posterGlowOption : CRsensePosterGlowOption;
-	public var stashGlowOption : CRsenseStashGlowOption;
-	public var herbGlowOption : CRsenseHerbGlowOption;
-	public var beehiveGlowOption : CRsenseBeehiveGlowOption;
-	public var containerGlowOption : CRsenseContainerGlowOption;
-	public var doorGlowOption : CRsenseDoorGlowOption;
-	public var corpseGlowOption : CRsenseCorpseGlowOption;
+	public var signpostHighlightOption : CRsenseSignpostHighlightOption;
+	public var noticeboardHighlightOption : CRsenseNoticeboardHighlightOption;
+	public var buffStationHighlightOption : CRsenseBuffStationHighlightOption;
+	public var clueHighlightOption : CRsenseClueHighlightOption;
+	public var posterHighlightOption : CRsensePosterHighlightOption;
+	public var stashHighlightOption : CRsenseStashHighlightOption;
+	public var herbHighlightOption : CRsenseHerbHighlightOption;
+	public var beehiveHighlightOption : CRsenseBeehiveHighlightOption;
+	public var containerHighlightOption : CRsenseContainerHighlightOption;
+	public var doorHighlightOption : CRsenseDoorHighlightOption;
+	public var corpseHighlightOption : CRsenseCorpseHighlightOption;
 
 	public function Init()
 	{
 		var i : int;
 
-		signpostGlowOption = new CRsenseSignpostGlowOption in this;
-		noticeboardGlowOption = new CRsenseNoticeboardGlowOption in this;
-		buffStationGlowOption = new CRsenseBuffStationGlowOption in this;
-		clueGlowOption = new CRsenseClueGlowOption in this;
-		posterGlowOption = new CRsensePosterGlowOption in this;
-		stashGlowOption = new CRsenseStashGlowOption in this;
-		herbGlowOption = new CRsenseHerbGlowOption in this;
-		beehiveGlowOption = new CRsenseBeehiveGlowOption in this;
-		containerGlowOption = new CRsenseContainerGlowOption in this;
-		doorGlowOption = new CRsenseDoorGlowOption in this;
-		corpseGlowOption = new CRsenseCorpseGlowOption in this;
+		signpostHighlightOption = new CRsenseSignpostHighlightOption in this;
+		noticeboardHighlightOption = new CRsenseNoticeboardHighlightOption in this;
+		buffStationHighlightOption = new CRsenseBuffStationHighlightOption in this;
+		clueHighlightOption = new CRsenseClueHighlightOption in this;
+		posterHighlightOption = new CRsensePosterHighlightOption in this;
+		stashHighlightOption = new CRsenseStashHighlightOption in this;
+		herbHighlightOption = new CRsenseHerbHighlightOption in this;
+		beehiveHighlightOption = new CRsenseBeehiveHighlightOption in this;
+		containerHighlightOption = new CRsenseContainerHighlightOption in this;
+		doorHighlightOption = new CRsenseDoorHighlightOption in this;
+		corpseHighlightOption = new CRsenseCorpseHighlightOption in this;
 
-		options.PushBack( signpostGlowOption );
-		options.PushBack( noticeboardGlowOption );
-		options.PushBack( buffStationGlowOption );
-		options.PushBack( clueGlowOption );
-		options.PushBack( posterGlowOption );
-		options.PushBack( stashGlowOption );
-		options.PushBack( herbGlowOption );
-		options.PushBack( beehiveGlowOption );
-		options.PushBack( containerGlowOption );
-		options.PushBack( doorGlowOption );
-		options.PushBack( corpseGlowOption );
+		options.PushBack( signpostHighlightOption );
+		options.PushBack( noticeboardHighlightOption );
+		options.PushBack( buffStationHighlightOption );
+		options.PushBack( clueHighlightOption );
+		options.PushBack( posterHighlightOption );
+		options.PushBack( stashHighlightOption );
+		options.PushBack( herbHighlightOption );
+		options.PushBack( beehiveHighlightOption );
+		options.PushBack( containerHighlightOption );
+		options.PushBack( doorHighlightOption );
+		options.PushBack( corpseHighlightOption );
 		for( i = 0; i < options.Size(); i += 1 )
 		{
 			options[ i ].Init();
