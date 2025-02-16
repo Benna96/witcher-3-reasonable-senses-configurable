@@ -6,7 +6,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 ## General
 
-For proper description & usage, go to [User README](README-User.md).
+For proper description & usage, go to [User README](docs\README-User.md).
 
 ### Changes from predecessor
 
