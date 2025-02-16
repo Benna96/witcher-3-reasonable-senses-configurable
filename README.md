@@ -35,26 +35,28 @@ For proper description & usage, go to [User README](docs\README-User.md).
 
 ### Repo structure
 
-- `_tools` folder
+- `tools` folder
   - Callable `*.bat` files to be called by higher-level `*.bat` files
-- One folder for each eventual `modX` folder
-  - Subfolders
-    - `redkit`: files that need to be packed into bundles or caches
-    - `scripts`: `*.ws` files, usually has `local` etc folders inside 
-    - `modmenu`: `*.xml` files, just files, they're put under `bin` by packer script
-    - `localization`: `*.csv` files
-    - `extra`: other files, like `README`, `user.settings.part`, etc
-  - `witcherscript.toml`: Enable usage with *WitcherScript IDE* (Visual Studio Code extension)
-  - `*.bat` files for packing & installing the mod
+- `src` folder
+  - One folder for each eventual `modX` folder
+    - Subfolders
+      - `redkit`: files that need to be packed into bundles or caches
+      - `scripts`: `*.ws` files, usually has `local` etc folders inside 
+      - `modmenu`: `*.xml` files, just files, they're put under `bin` by packer script
+      - `localization`: `*.csv` files
+      - `extra`: other files, like `README`, `user.settings.part`, etc
+    - `witcherscript.toml`: Enable usage with *WitcherScript IDE* (Visual Studio Code extension)
+    - `*.bat` files for packing & installing the mod
+- Other pretty self-explanatory folders
 
 ### Pack & install
 
 1. Have [`w3strings.exe`](https://www.nexusmods.com/witcher3/mods/1055) in *Path* environment variable
-2. For each top-level folder in the repo
+2. For each folder under `src` in the repo
    1. If there's a `redkit` folder, open it in REDkit & cook the mod (or maybe use wcclite to do it, or whatever else)
       - Only need to do it the first time & when content changes
    2. Run `pack.bat`
    3. Depending on if the mod is installed yet, either
-      - Zip up the contents of the `packed` folder & install with [The Witcher 3 Mod Manager](https://www.nexusmods.com/witcher3/mods/2678), or
+      - Zip up the contents of the generated `packed` folder & install with [The Witcher 3 Mod Manager](https://www.nexusmods.com/witcher3/mods/2678), or
       - Make sure `gameDir` inside `_tools\updatecallerinstall.bat` matches your game directory & run `updateinstall.bat` to update your existing installation
          - This doesn't update any of the files referenced by `.part.txt` files

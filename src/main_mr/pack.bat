@@ -3,9 +3,9 @@ set "od=%cd%"
 cd /D "%~dp0"
 
 @REM Change per batch file!
-set "mod=modReasonableSensesConfigurable"
+set "mod=modZReasonableSensesConfigurable_MR"
 
-call "..\_tools\updatecallerinstall"
+call "..\tools\packcaller"
 
 cd /D %od%
 @echo on

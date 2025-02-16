@@ -5,7 +5,7 @@ cd /D "%~dp0"
 @REM Change per batch file!
 set "mod=modReasonableSensesConfigurable"
 
-call "..\_tools\packcaller"
+call "..\tools\packcaller"
 
 cd /D %od%
 @echo on
