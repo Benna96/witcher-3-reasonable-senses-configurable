@@ -23,6 +23,7 @@ For proper description & usage, go to [User README](docs\README-User.md).
     - Hooks are defined higher up in inheritance chain when possible
   - Most everything is done with [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations) to keep the mod as compatible & merge-free as possible
     - Script edits not possible with annotations are in `_mr` version of the mod (standing for 'merge required'), as putting both annotations and script edits in the same mod can result in undefined behaviour (at least, WitcherScript IDE is not a fan)
+  - Localized strings' id space is that of the original mod, `3377`, as this mod's id is `10463` which is too high to use as an id space
 - Features
   - Highlights
     - Override `SetFocusModeVisibility` to maybe set visibility to `FMV_None` depending on active options
