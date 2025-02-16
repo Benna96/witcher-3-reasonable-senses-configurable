@@ -1,10 +1,11 @@
 ;meta[language=en]
 ; id | key(hex) | key(str) | text
 ;
+;------------------------------------ Panels -----------------------------------
 2113377000||panel_Mods|Mods
 2113377001||panel_rsense|Reasonable Senses
 ;
-;---------------- Title, support Community Patch - Menu Strings ----------------
+;---------------- Titles, support Community Patch - Menu Strings ---------------
 2113377010||preset_Mods_rsense|Reasonable Senses
 2113377011||preset_Mods_alchemy_and_equipment_rsense|Reasonable Senses
 2113377012||preset_Mods_camera_rsense|Reasonable Senses
