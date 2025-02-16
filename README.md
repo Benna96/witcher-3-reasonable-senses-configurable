@@ -4,41 +4,38 @@
 
 A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https://www.nexusmods.com/witcher3/mods/3377).
 
-## Changes from predecessor
+## General
+
+### Changes from predecessor
 
 - Highlight for each supported type of object is configurable from a mod menu
-- Support herbs
-- Support signpost ( & fix visibility bug )
-- Support stash
-- Support workbenches & grindstones
-- Support clues (note, clue highlight still shows up, this hides interactive highlight)
-- Support some types of containers separately from other containers
+- Support more types of objects
 
-## Mod compatibility
+### Mod compatibility
 
-- Friendly Focus: When 'Fade Transition' option is off, objects that you've set to not highlight may get highlighted for a split second on the first time you focus after a loading screen
+- Friendly Focus: When 'Fade Transition' option is off, objects that have been set to not highlight may get highlighted for a few frames upon the first time focusing after a loading screen
   - Couldn't solve this
-    - Vanilla's slower transition only hides the issue, & lengthening Friendly Focus' quicker transition time wouldn't help consistently as I think it depends on the object's distance from camera as well
-  - Something that'd edit out the highlight's trailing effect might fix it. (Trailing effect meaning, when you move the camera around, old highlight chills around for a bit.)
-    - Most likely would need a shader edit, which seems close to if not impossible
-    - Or, it's a particle effect, but going through a bunch of `.w2p` files with even the most slightly related names, none affected it. Wonder if there's ones not exposed to REDkit... Editing monster ripple ones worked just fine.
+    - Vanilla's slower transition just hides the issue
+    - Most likely an edit of the highlight shader to not linger on the screen would fix this, but that would be a whole ordeal of its own, even finding the correct thing to edit in the first place seems hard (I tried & failed)
 
 ## Technical
 
 ### Mod structure, logic, notes
 
-- General logic
-  - Override `SetFocusModeVisibility` to maybe actually set to `FMV_None`, depending on active options
-    - `GetFocusModeVisibility` returns the previously not-necessarily-set visibility to support code that uses the visibility for logic (e.g. All Containers Glow)
-    - Clue highlights aren't affected, except with options that allow more than just on/off
-    - ***Note***: `gameplayEntity.ws` changes aren't possible to do with annotations. They're super simple though & should automerge in the vast majority of cases.
-  - Each of the mod's options has a corresponding option class, all listed in `CRsenseConfig`; functionality is split between the option class & vanilla code injections
-- Herb support
-  - `_nohighlight` variants of herb `srt`s (removed `InteractiveOn` string), & an entry called `full_nohighlight` to these in corresponding `w2sf` files
-  - Override `foliageComponent.SetAndSaveEntry` to maybe set it to `full_nohighlight`, depending on active options
-- Compatibility
-  - Make as many changes as possible using [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations)
-    - Not possible for everything, some scripts do need to be merged. All such scripts are put inside a `*_mr` folder (standing for 'merge required').
+- Structure
+  - Config accessed through `theGame.GetRsenseConfig()`, with all options in it
+  - Each option has its own file, which contains the option's class & all hooks the option uses to do its things
+    - Hooks are defined higher up in inheritance chain when possible
+  - Most everything is done with [annotations](https://cdprojektred.atlassian.net/wiki/spaces/W3REDkit/pages/36241598/WS+Script+Compilation+Errors+overrides#Annotations) to keep the mod as compatible & merge-free as possible
+    - Script edits not possible with annotations are in `_mr` version of the mod (standing for 'merge required'), as putting both annotations and script edits in the same mod can result in undefined behaviour (at least, WitcherScript IDE is not a fan)
+- Features
+  - Highlights
+    - Override `SetFocusModeVisibility` to maybe set visibility to `FMV_None` depending on active options
+      - `GetFocusModeVisibility` is also modified so it returns the same thing it would before the edit
+    - For ON/OFF options, clue highlights are never hidden
+    - Herb support requires extra stuff, as most herbs use the entry of `foliageComponent` to determine visibility
+      - Create `_nohighlight` variants of herb `srt`s (removed `InteractiveOn` string), & add an entry called `full_nohighlight` to these in corresponding `w2sf` files
+      - Override `foliageComponent.SetAndSaveEntry` to maybe set entry to `full_nohighlight` depending on active options
 
 ### Repo structure
 
