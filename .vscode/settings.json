@@ -1,0 +1,7 @@
+{
+	"rainbow_csv.autodetect_separators": [
+		"TAB",
+		"|"
+	],
+	"rainbow_csv.comment_prefix": ";"
+}
