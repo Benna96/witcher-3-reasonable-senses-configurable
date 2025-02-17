@@ -6,7 +6,7 @@ A successor to the Witcher 3 mod [Reasonable Senses - Afterglow effects](https:/
 
 ## General
 
-For proper description & usage, go to [User README](docs\README-User.md).
+For proper description & usage, go to [User README](docs/README-User.md).
 
 ### Changes from predecessor
 
@@ -58,5 +58,5 @@ For proper description & usage, go to [User README](docs\README-User.md).
    2. Run `pack.bat`
    3. Depending on if the mod is installed yet, either
       - Zip up the contents of the generated `packed` folder & install with [The Witcher 3 Mod Manager](https://www.nexusmods.com/witcher3/mods/2678), or
-      - Make sure `gameDir` inside `_tools\updatecallerinstall.bat` matches your game directory & run `updateinstall.bat` to update your existing installation
+      - Make sure `gameDir` inside `_tools/updatecallerinstall.bat` matches your game directory & run `updateinstall.bat` to update your existing installation
          - This doesn't update any of the files referenced by `.part.txt` files
