@@ -46,3 +46,7 @@ Keep the mod menu limit in mind. If you have more than 9 menus under the `Mods` 
 
 - [Friendly Focus](https://www.nexusmods.com/witcher3/mods/7167) — Makes focus mode a lot nicer to use
 - [Witcher Sense Color Customizer](https://www.nexusmods.com/witcher3/mods/125) — For changing highlight colors. Should work with Next-Gen according to comments.
+
+## Other
+
+Source is available on [GitHub](https://github.com/Benna96/witcher-3-reasonable-senses-configurable).
