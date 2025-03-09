@@ -1,3 +1,6 @@
+[b][color=yellow]CRITICAL BUG: THE GAME CURRENTLY CRASHES IF YOU CHANGE DIFFICULTY.[/color][/b] 
+Will fix as soon as possible.
+
 [color=#f38ba8][size=6]Reasonable Senses Configurable[/size][/color]
 
 This mod is a successor to [url=https://www.nexusmods.com/witcher3/mods/3377]Reasonable Senses - Afterglow effects[/url].
@@ -41,6 +44,16 @@ The few script edits not done through annotations should automerge in the vast m
 Keep the mod menu limit in mind. If you have more than 9 menus under the [font=Courier New]Mods[/font] submenu, you should use [url=https://www.nexusmods.com/witcher3/mods/3650]Community Patch - Menu Strings[/url].
 
 [color=#fab387][size=5]Known bugs[/size][/color]
+
+[color=#f9e2af][size=4]Critical[/size][/color]
+
+[list]
+[*]When changing difficulty, the game crashes ([url=https://github.com/Benna96/witcher-3-reasonable-senses-configurable/issues/1]link to issue[/url])
+
+[list]
+[*]Will try fix as soon as I have time
+[/list][/list]
+[color=#f9e2af][size=4]Won't fix[/size][/color]
 
 [list]
 [*]When having [url=https://www.nexusmods.com/witcher3/mods/7167]Friendly Focus[/url]' 'Fade Transition' option off, objects set to not highlight may be highlighted for some frames on the first time focusing after a loading screen
