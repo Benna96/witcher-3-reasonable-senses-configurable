@@ -1,6 +1,3 @@
-**CRITICAL BUG: THE GAME CURRENTLY CRASHES IF YOU CHANGE DIFFICULTY.** <br/>
-Will fix as soon as possible.
-
 # Reasonable Senses Configurable
 
 This mod is a successor to [Reasonable Senses - Afterglow effects](https://www.nexusmods.com/witcher3/mods/3377).<br/>
@@ -40,11 +37,6 @@ The few script edits not done through annotations should automerge in the vast m
 Keep the mod menu limit in mind. If you have more than 9 menus under the `Mods` submenu, you should use [Community Patch - Menu Strings](https://www.nexusmods.com/witcher3/mods/3650).
 
 ## Known bugs
-
-### Critical
-
-- When changing difficulty, the game crashes ([link to issue](https://github.com/Benna96/witcher-3-reasonable-senses-configurable/issues/1))
-  - Will try fix as soon as I have time
 
 ### Won't fix
 
