@@ -36,6 +36,10 @@ The few script edits not done through annotations should automerge in the vast m
 
 Keep the mod menu limit in mind. If you have more than 9 menus under the `Mods` submenu, you should use [Community Patch - Menu Strings](https://www.nexusmods.com/witcher3/mods/3650).
 
+### Compatibility patches in Optional Files
+
+- [Vegetation Billboards Remastered](https://www.nexusmods.com/witcher3/mods/8956)
+
 ## Known bugs
 
 ### Won't fix
