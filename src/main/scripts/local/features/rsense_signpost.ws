@@ -23,6 +23,8 @@ class CRsenseSignpostHighlightOption extends IRsenseHighlightOption
 // Bugfix only, rest is done in _entities
 @wrapMethod( W3FastTravelEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	wrappedMethod( spawnData );
+	if( wrappedMethod( spawnData ) == true )
+		return true;
+	
 	SetFocusModeVisibility( FMV_Interactive ); // Without this not all signposts are highlighted
 }

@@ -23,6 +23,8 @@ class CRsenseNoticeboardHighlightOption extends IRsenseHighlightOption
 // Usually done in _entities, but noticeboards don't call super.OnSpawned
 @wrapMethod( W3NoticeBoard ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	wrappedMethod( spawnData );
+	if( wrappedMethod( spawnData ) == true )
+		return true;
+
 	GetHighlightOption().RegisterEntity( this );
 }

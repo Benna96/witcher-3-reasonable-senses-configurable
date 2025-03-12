@@ -10,7 +10,9 @@
 // Maybe override in supported classes
 @wrapMethod( CGameplayEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	wrappedMethod( spawnData );
+	if( wrappedMethod( spawnData ) == true )
+		return true;
+
 	GetHighlightOption().RegisterEntity( this );
 }
 

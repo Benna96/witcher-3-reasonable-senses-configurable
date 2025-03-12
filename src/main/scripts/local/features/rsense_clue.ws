@@ -23,6 +23,8 @@ class CRsenseClueHighlightOption extends IRsenseHighlightOption
 // Usually done in _entities, but clues don't call super.OnSpawned
 @wrapMethod( W3MonsterClue ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	wrappedMethod( spawnData );
+	if( wrappedMethod( spawnData ) == true )
+		return true;
+
 	GetHighlightOption().RegisterEntity( this );
 }

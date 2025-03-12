@@ -101,7 +101,7 @@ abstract class IRsenseHighlightOption extends IRsenseOption
 	// Doesn't matter much, cleared in LoadSave too
 	// Just reduces unnecessary work when changing mod settings in main menu
 	Rsense_ClearHighlightOptionEntities();
-	wrappedMethod();
+	return wrappedMethod();
 }
 
 function Rsense_ClearHighlightOptionEntities()

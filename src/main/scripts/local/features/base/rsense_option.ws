@@ -37,16 +37,14 @@ abstract class IRsenseOption
 
 @wrapMethod( CR4IngameMenu ) function OnOptionValueChanged(groupId:int, optionName:name, optionValue:string)
 {
-	var preventDefault : bool;
 	var groupName : name;
 	var i : int;
 	var options : array< IRsenseOption >;
 	var matchingOption : IRsenseOption;
 
-	// If true is returned, it's not safe to continue executing
+	// If wrapped returns true, it's not safe to continue executing
 	// Continuing causes crash on difficulty change for example (issue #1 on GitHub)
-	preventDefault = wrappedMethod( groupId, optionName, optionValue );
-	if( preventDefault )
+	if( wrappedMethod( groupId, optionName, optionValue ) == true )
 		return true;
 
 	groupName = mInGameConfigWrapper.GetGroupName(groupId);
@@ -69,10 +67,12 @@ abstract class IRsenseOption
 
 @wrapMethod( CR4IngameMenu ) function OnPresetApplied(groupId:name, targetPresetIndex:int)
 {
+	var returnVal : bool;
 	var i : int;
 	var options : array< IRsenseOption >;
 
-	wrappedMethod( groupId, targetPresetIndex );
+	if( wrappedMethod( groupId, targetPresetIndex ) == true )
+		return true;
 
 	options = theGame.GetRsenseConfig().GetAllOptions();
 	for( i = 0; i < options.Size(); i += 1 )
