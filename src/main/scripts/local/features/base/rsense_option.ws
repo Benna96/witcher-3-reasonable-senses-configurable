@@ -76,8 +76,7 @@ abstract class IRsenseOption
 	var i : int;
 	var options : array< IRsenseOption >;
 
-	if( wrappedMethod( groupId, targetPresetIndex ) == true )
-		return true;
+	returnVal = wrappedMethod( groupId, targetPresetIndex );
 
 	options = theGame.GetRsenseConfig().GetAllOptions();
 	for( i = 0; i < options.Size(); i += 1 )
@@ -87,4 +86,6 @@ abstract class IRsenseOption
 			options[ i ].Apply();
 		}
 	}
+
+	return returnVal;
 }

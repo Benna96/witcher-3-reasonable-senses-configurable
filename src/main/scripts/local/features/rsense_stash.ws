@@ -25,8 +25,9 @@ class CRsenseStashHighlightOption extends IRsenseHighlightOption
 // Put this in its own class if I add more InteractiveEntity classes
 @wrapMethod( CInteractiveEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	if( wrappedMethod( spawnData ) == true )
-		return true;
+	var returnVal : bool;
 
+	returnVal = wrappedMethod( spawnData );
 	GetHighlightOption().RegisterEntity( this );
+	return returnVal;
 }

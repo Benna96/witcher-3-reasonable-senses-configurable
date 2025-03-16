@@ -10,10 +10,11 @@
 // Maybe override in supported classes
 @wrapMethod( CGameplayEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	if( wrappedMethod( spawnData ) == true )
-		return true;
+	var returnVal : bool;
 
+	returnVal = wrappedMethod( spawnData );
 	GetHighlightOption().RegisterEntity( this );
+	return returnVal;
 }
 
 // Can't wrap SetFocusModeVisibility, sadly. Can't be done for imported functions.

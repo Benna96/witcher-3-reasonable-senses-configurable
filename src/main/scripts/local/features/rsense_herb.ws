@@ -37,10 +37,11 @@ class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 // Usually done in _entities, but herbs don't call super.OnSpawned
 @wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	if( wrappedMethod( spawnData ) == true )
-		return true;
+	var returnVal : bool;
 
+	returnVal = wrappedMethod( spawnData );
 	GetHighlightOption().RegisterEntity( this );
+	return returnVal;
 }
 
 /* -------------------------- Visibility injection -------------------------- */

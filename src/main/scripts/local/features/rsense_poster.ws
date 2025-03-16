@@ -22,10 +22,11 @@ class CRsensePosterHighlightOption extends IRsenseHighlightOption
 // Usually done in _entities, but posters don't call super.OnSpawned
 @wrapMethod( W3Poster ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	if( wrappedMethod( spawnData ) == true )
-		return true;
+	var returnVal : bool;
 
+	returnVal = wrappedMethod( spawnData );
 	GetHighlightOption().RegisterEntity( this );
+	return returnVal;
 }
 
 /* -------------------------- Visibility injection -------------------------- */
