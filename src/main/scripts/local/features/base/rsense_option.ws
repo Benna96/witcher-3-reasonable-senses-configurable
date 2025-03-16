@@ -37,15 +37,18 @@ abstract class IRsenseOption
 
 @wrapMethod( CR4IngameMenu ) function OnOptionValueChanged(groupId:int, optionName:name, optionValue:string)
 {
+	var returnVal : bool;
 	var groupName : name;
 	var i : int;
 	var options : array< IRsenseOption >;
 	var matchingOption : IRsenseOption;
 
-	// If wrapped returns true, it's not safe to continue executing
-	// Continuing causes crash on difficulty change for example (issue #1 on GitHub)
-	if( wrappedMethod( groupId, optionName, optionValue ) == true )
-		return true;
+	returnVal = wrappedMethod( groupId, optionName, optionValue );
+
+	// groupId acts as groupIdx most of the time, but not always, which can cause GetGroupName to crash
+	// See issue #1 on GitHub
+	if( groupId >= mInGameConfigWrapper.GetGroupsNum() )
+		return returnVal;
 
 	groupName = mInGameConfigWrapper.GetGroupName(groupId);
 	options = theGame.GetRsenseConfig().GetAllOptions();
@@ -63,6 +66,8 @@ abstract class IRsenseOption
 	{
 		matchingOption.Apply();
 	}
+
+	return returnVal;
 }
 
 @wrapMethod( CR4IngameMenu ) function OnPresetApplied(groupId:name, targetPresetIndex:int)
