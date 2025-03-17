@@ -14,6 +14,7 @@ class CRsenseConfig
 	public var containerHighlightOption : CRsenseContainerHighlightOption;
 	public var doorHighlightOption : CRsenseDoorHighlightOption;
 	public var corpseHighlightOption : CRsenseCorpseHighlightOption;
+	public var explosiveBarrelHighlightOption : CRsenseExplosiveBarrelHighlightOption;
 
 	public function Init()
 	{
@@ -30,6 +31,7 @@ class CRsenseConfig
 		containerHighlightOption = new CRsenseContainerHighlightOption in this;
 		doorHighlightOption = new CRsenseDoorHighlightOption in this;
 		corpseHighlightOption = new CRsenseCorpseHighlightOption in this;
+		explosiveBarrelHighlightOption = new CRsenseExplosiveBarrelHighlightOption in this;
 
 		options.PushBack( signpostHighlightOption );
 		options.PushBack( noticeboardHighlightOption );
@@ -42,6 +44,7 @@ class CRsenseConfig
 		options.PushBack( containerHighlightOption );
 		options.PushBack( doorHighlightOption );
 		options.PushBack( corpseHighlightOption );
+		options.PushBack( explosiveBarrelHighlightOption );
 		for( i = 0; i < options.Size(); i += 1 )
 		{
 			options[ i ].Init();

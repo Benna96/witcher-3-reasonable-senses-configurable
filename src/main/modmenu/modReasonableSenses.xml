@@ -4,6 +4,7 @@
 		<PresetsArray>
 			<Preset id="0" displayName="rsense_default">
 				<Entry varId="doorHighlight" value="false"/>
+				<Entry varId="explosiveBarrelHighlight" value="true"/>
 				<Entry varId="posterHighlight" value="false"/>
 				<Entry varId="clueHighlight" value="1"/>
 				<Entry varId="stashHighlight" value="true"/>
@@ -19,6 +20,7 @@
 			</Preset>
 			<Preset id="1" displayName="rsense_minimalist">
 				<Entry varId="doorHighlight" value="false"/>
+				<Entry varId="explosiveBarrelHighlight" value="false"/>
 				<Entry varId="posterHighlight" value="false"/>
 				<Entry varId="clueHighlight" value="1"/>
 				<Entry varId="stashHighlight" value="false"/>
@@ -34,6 +36,7 @@
 			</Preset>
 			<Preset id="2" displayName="rsense_vanilla">
 				<Entry varId="doorHighlight" value="true"/>
+				<Entry varId="explosiveBarrelHighlight" value="true"/>
 				<Entry varId="posterHighlight" value="true"/>
 				<Entry varId="clueHighlight" value="2"/>
 				<Entry varId="stashHighlight" value="true"/>
@@ -50,6 +53,7 @@
 		</PresetsArray>
 		<VisibleVars>
 			<Var id="doorHighlight" displayName="rsense_doorsHighlight" displayType="TOGGLE"/>
+			<Var id="explosiveBarrelHighlight" displayName="rsense_explosiveBarrelsHighlight" displayType="TOGGLE"/>
 			<Var id="posterHighlight" displayName="rsense_postersHighlight" displayType="TOGGLE"/>
 			<Var id="clueHighlight" displayName="rsense_cluesHighlight" displayType="OPTIONS">
 				<OptionsArray>
