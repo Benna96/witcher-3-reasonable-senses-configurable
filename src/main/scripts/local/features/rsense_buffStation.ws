@@ -15,9 +15,9 @@ class CRsenseBuffStationHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3ItemRepairObject ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3ItemRepairObject ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().buffStationHighlightOption;
+	return RSHO_BUFFSTATION;
 }
 
 /* ------------------------------ Registration ------------------------------ */

@@ -1,50 +1,42 @@
 /* ------------------------------ Config class ------------------------------ */
 
+// Using enums for indices, maps/dictionaries don't exist in WS
+enum ERsenseOption
+{
+	RSHO_SIGNPOST,
+	RSHO_NOTICEBOARD,
+	RSHO_BUFFSTATION,
+	RSHO_CLUE,
+	RSHO_POSTER,
+	RSHO_STASH,
+	RSHO_HERB,
+	RSHO_BEEHIVE,
+	RSHO_CONTAINER,
+	RSHO_DOOR,
+	RSHO_CORPSE,
+	RSHO_EXPLOSIVEBARREL,
+}
+
 class CRsenseConfig
 {
 	public var options : array< IRsenseOption >;
-	public var signpostHighlightOption : CRsenseSignpostHighlightOption;
-	public var noticeboardHighlightOption : CRsenseNoticeboardHighlightOption;
-	public var buffStationHighlightOption : CRsenseBuffStationHighlightOption;
-	public var clueHighlightOption : CRsenseClueHighlightOption;
-	public var posterHighlightOption : CRsensePosterHighlightOption;
-	public var stashHighlightOption : CRsenseStashHighlightOption;
-	public var herbHighlightOption : CRsenseHerbHighlightOption;
-	public var beehiveHighlightOption : CRsenseBeehiveHighlightOption;
-	public var containerHighlightOption : CRsenseContainerHighlightOption;
-	public var doorHighlightOption : CRsenseDoorHighlightOption;
-	public var corpseHighlightOption : CRsenseCorpseHighlightOption;
-	public var explosiveBarrelHighlightOption : CRsenseExplosiveBarrelHighlightOption;
 
 	public function Init()
 	{
 		var i : int;
 
-		signpostHighlightOption = new CRsenseSignpostHighlightOption in this;
-		noticeboardHighlightOption = new CRsenseNoticeboardHighlightOption in this;
-		buffStationHighlightOption = new CRsenseBuffStationHighlightOption in this;
-		clueHighlightOption = new CRsenseClueHighlightOption in this;
-		posterHighlightOption = new CRsensePosterHighlightOption in this;
-		stashHighlightOption = new CRsenseStashHighlightOption in this;
-		herbHighlightOption = new CRsenseHerbHighlightOption in this;
-		beehiveHighlightOption = new CRsenseBeehiveHighlightOption in this;
-		containerHighlightOption = new CRsenseContainerHighlightOption in this;
-		doorHighlightOption = new CRsenseDoorHighlightOption in this;
-		corpseHighlightOption = new CRsenseCorpseHighlightOption in this;
-		explosiveBarrelHighlightOption = new CRsenseExplosiveBarrelHighlightOption in this;
-
-		options.PushBack( signpostHighlightOption );
-		options.PushBack( noticeboardHighlightOption );
-		options.PushBack( buffStationHighlightOption );
-		options.PushBack( clueHighlightOption );
-		options.PushBack( posterHighlightOption );
-		options.PushBack( stashHighlightOption );
-		options.PushBack( herbHighlightOption );
-		options.PushBack( beehiveHighlightOption );
-		options.PushBack( containerHighlightOption );
-		options.PushBack( doorHighlightOption );
-		options.PushBack( corpseHighlightOption );
-		options.PushBack( explosiveBarrelHighlightOption );
+		options.PushBack( new CRsenseSignpostHighlightOption in this );
+		options.PushBack( new CRsenseNoticeboardHighlightOption in this );
+		options.PushBack( new CRsenseBuffStationHighlightOption in this );
+		options.PushBack( new CRsenseClueHighlightOption in this );
+		options.PushBack( new CRsensePosterHighlightOption in this );
+		options.PushBack( new CRsenseStashHighlightOption in this );
+		options.PushBack( new CRsenseHerbHighlightOption in this );
+		options.PushBack( new CRsenseBeehiveHighlightOption in this );
+		options.PushBack( new CRsenseContainerHighlightOption in this );
+		options.PushBack( new CRsenseDoorHighlightOption in this );
+		options.PushBack( new CRsenseCorpseHighlightOption in this );
+		options.PushBack( new CRsenseExplosiveBarrelHighlightOption in this );
 		for( i = 0; i < options.Size(); i += 1 )
 		{
 			options[ i ].Init();

@@ -14,7 +14,7 @@ class CRsenseContainerHighlightOption extends IRsenseHighlightOption
 
 // Used in _entities
 // Override in supported container classes
-@addMethod( W3Container ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3Container ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().containerHighlightOption;
+	return RSHO_CONTAINER;
 }

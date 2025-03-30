@@ -13,9 +13,9 @@ class CRsenseSignpostHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3FastTravelEntity ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3FastTravelEntity ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().signpostHighlightOption;
+	return RSHO_SIGNPOST;
 }
 
 /* -------------------------- Registration & bugfix ------------------------- */

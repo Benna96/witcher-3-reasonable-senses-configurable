@@ -27,9 +27,9 @@ class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3Herb ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3Herb ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().herbHighlightOption;
+	return RSHO_HERB;
 }
 
 /* ------------------------------ Registration ------------------------------ */

@@ -16,11 +16,11 @@ class CRsenseDoorHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3Door ) protected function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3Door ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().doorHighlightOption;
+	return RSHO_DOOR;
 }
-@addMethod( W3NewDoor ) protected function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3NewDoor ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().doorHighlightOption;
+	return RSHO_DOOR;
 }

@@ -13,7 +13,7 @@ class CRsenseCorpseHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3ActorRemains ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3ActorRemains ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().corpseHighlightOption;
+	return RSHO_CORPSE;
 }

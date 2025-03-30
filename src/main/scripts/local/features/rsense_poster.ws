@@ -12,9 +12,9 @@ class CRsensePosterHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-@addMethod( W3Poster ) protected function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3Poster ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().posterHighlightOption;
+	return RSHO_POSTER;
 }
 
 /* ------------------------------ Registration ------------------------------ */

@@ -13,9 +13,9 @@ class CRsenseExplosiveBarrelHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( COilBarrelEntity ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( COilBarrelEntity ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().explosiveBarrelHighlightOption;
+	return RSHO_EXPLOSIVEBARREL;
 }
 
 /* -------------------------- Visibility injection -------------------------- */

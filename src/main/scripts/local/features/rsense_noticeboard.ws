@@ -13,9 +13,9 @@ class CRsenseNoticeboardHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3NoticeBoard ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3NoticeBoard ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().noticeboardHighlightOption;
+	return RSHO_NOTICEBOARD;
 }
 
 /* ------------------------------ Registration ------------------------------ */

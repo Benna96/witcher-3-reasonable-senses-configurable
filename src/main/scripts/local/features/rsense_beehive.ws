@@ -13,7 +13,7 @@ class CRsenseBeehiveHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( CBeehiveEntity ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( CBeehiveEntity ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().beehiveHighlightOption;
+	return RSHO_BEEHIVE;
 }

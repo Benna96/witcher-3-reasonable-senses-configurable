@@ -13,9 +13,9 @@ class CRsenseStashHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3Stash ) protected function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3Stash ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().stashHighlightOption;
+	return RSHO_STASH;
 }
 
 /* ------------------------------ Registration ------------------------------ */

@@ -13,9 +13,9 @@ class CRsenseClueHighlightOption extends IRsenseHighlightOption
 /* ------------------------------ Option getter ----------------------------- */
 
 // Used in _entities
-@addMethod( W3MonsterClue ) protected /* override */ function GetHighlightOption() : IRsenseHighlightOption
+@addMethod( W3MonsterClue ) protected /* override */ function GetHighlightOptionIndex() : int
 {
-	return theGame.GetRsenseConfig().clueHighlightOption;
+	return RSHO_CLUE;
 }
 
 /* ------------------------------ Registration ------------------------------ */
