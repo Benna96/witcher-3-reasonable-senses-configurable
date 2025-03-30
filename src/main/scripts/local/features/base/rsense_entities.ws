@@ -33,3 +33,34 @@
 
 // Can't wrap SetFocusModeVisibility, sadly. Can't be done for imported functions.
 // Add overrides for them in extending classes instead.
+// Can add some shared logic to be called by said extending classes, though.
+@addField( CGameplayEntity )
+private var rsense_visibilitySet : bool;
+@addField( CGameplayEntity )
+private var rsense_cachedVisibility : EFocusModeVisibility;
+@addMethod( CGameplayEntity ) protected function Rsense_CacheAndModVisibility( focusModeVisibility : EFocusModeVisibility ) : EFocusModeVisibility
+{
+	var option : IRsenseHighlightOption;
+
+	rsense_visibilitySet = true;
+	rsense_cachedVisibility = focusModeVisibility;
+
+	option = GetHighlightOption();
+	if( option )
+	{
+		focusModeVisibility = option.ModVisibility( focusModeVisibility );
+	}
+
+	return focusModeVisibility;
+}
+@addMethod( CGameplayEntity ) protected function Rsense_GetCachedOrActualVisibility( actual : EFocusModeVisibility ) : EFocusModeVisibility
+{
+	if( rsense_visibilitySet )
+	{
+		return rsense_cachedVisibility;
+	}
+	else
+	{
+		return actual;
+	}
+}

@@ -21,15 +21,12 @@ class CRsenseExplosiveBarrelHighlightOption extends IRsenseHighlightOption
 /* -------------------------- Visibility injection -------------------------- */
 
 // Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addField( COilBarrelEntity )
-private var cachedFocusModeVisiblity : EFocusModeVisibility;
 @addMethod( COilBarrelEntity ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
-	cachedFocusModeVisiblity = focusModeVisibility;
-	focusModeVisibility = Rsense_MaybeNoVisibility( focusModeVisibility, GetHighlightOption() );
+	focusModeVisibility = Rsense_CacheAndModVisibility( focusModeVisibility );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
 @addMethod( COilBarrelEntity ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
 {
-	return Rsense_SuperOrCachedVisibility( super.GetFocusModeVisibility(), cachedFocusModeVisiblity );
+	return Rsense_GetCachedOrActualVisibility( super.GetFocusModeVisibility() );
 }

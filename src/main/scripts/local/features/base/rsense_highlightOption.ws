@@ -68,6 +68,18 @@ abstract class IRsenseHighlightOption extends IRsenseOption
 		entity.SetFocusModeVisibility( entity.GetFocusModeVisibility() );
 	}
 
+	public function ModVisibility( focusModeVisibility : EFocusModeVisibility ) : EFocusModeVisibility
+	{
+		if( focusModeVisibility & allowedVisibilities )
+		{
+			return focusModeVisibility;
+		}
+		else
+		{
+			return FMV_None;
+		}
+	}
+
 	public final function ClearEntities()
 	{
 		entities.Clear();
