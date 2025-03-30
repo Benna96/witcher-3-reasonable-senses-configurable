@@ -2,7 +2,7 @@
 
 class CRsenseConfig
 {
-	private var options : array< IRsenseOption >;
+	public var options : array< IRsenseOption >;
 	public var signpostHighlightOption : CRsenseSignpostHighlightOption;
 	public var noticeboardHighlightOption : CRsenseNoticeboardHighlightOption;
 	public var buffStationHighlightOption : CRsenseBuffStationHighlightOption;
@@ -49,11 +49,6 @@ class CRsenseConfig
 		{
 			options[ i ].Init();
 		}
-	}
-
-	public function GetAllOptions() : array< IRsenseOption >
-	{
-		return options;
 	}
 }
 

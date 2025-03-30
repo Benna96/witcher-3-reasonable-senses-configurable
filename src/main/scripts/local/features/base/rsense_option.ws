@@ -51,7 +51,7 @@ abstract class IRsenseOption
 		return returnVal;
 
 	groupName = mInGameConfigWrapper.GetGroupName(groupId);
-	options = theGame.GetRsenseConfig().GetAllOptions();
+	options = theGame.GetRsenseConfig().options;
 
 	for( i = 0; i < options.Size(); i += 1 )
 	{
@@ -78,7 +78,7 @@ abstract class IRsenseOption
 
 	returnVal = wrappedMethod( groupId, targetPresetIndex );
 
-	options = theGame.GetRsenseConfig().GetAllOptions();
+	options = theGame.GetRsenseConfig().options;
 	for( i = 0; i < options.Size(); i += 1 )
 	{
 		if( options[ i ].xmlGroup == groupId )

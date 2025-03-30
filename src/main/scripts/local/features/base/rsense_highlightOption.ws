@@ -109,7 +109,7 @@ function Rsense_ClearHighlightOptionEntities()
 	var options : array< IRsenseOption >;
 	var i : int;
 
-	options = theGame.GetRsenseConfig().GetAllOptions();
+	options = theGame.GetRsenseConfig().options;
 	for( i = 0; i < options.Size(); i += 1 )
 	{
 		if( (IRsenseHighlightOption)options[ i ] )
