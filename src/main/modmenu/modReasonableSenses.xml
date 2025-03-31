@@ -12,6 +12,7 @@
 				<Entry varId="signpostHighlight" value="true"/>
 				<Entry varId="noticeboardHighlight" value="true"/>
 				<Entry varId="buffStationHighlight" value="true"/>
+				<Entry varId="bedHighlight" value="1"/>
 				
 				<Entry varId="herbHighlight" value="false"/>
 				<Entry varId="beehiveHighlight" value="true"/>
@@ -28,6 +29,7 @@
 				<Entry varId="signpostHighlight" value="false"/>
 				<Entry varId="noticeboardHighlight" value="false"/>
 				<Entry varId="buffStationHighlight" value="false"/>
+				<Entry varId="bedHighlight" value="0"/>
 				
 				<Entry varId="herbHighlight" value="false"/>
 				<Entry varId="beehiveHighlight" value="false"/>
@@ -44,6 +46,7 @@
 				<Entry varId="signpostHighlight" value="true"/>
 				<Entry varId="noticeboardHighlight" value="true"/>
 				<Entry varId="buffStationHighlight" value="true"/>
+				<Entry varId="bedHighlight" value="2"/>
 
 				<Entry varId="herbHighlight" value="true"/>
 				<Entry varId="beehiveHighlight" value="true"/>
@@ -68,6 +71,13 @@
 			<Var id="signpostHighlight" displayName="rsense_signpostsHighlight" displayType="TOGGLE"/>
 			<Var id="noticeboardHighlight" displayName="rsense_noticeboardsHighlight" displayType="TOGGLE"/>
 			<Var id="buffStationHighlight" displayName="rsense_workbenchesAndGrindstonesHighlight" displayType="TOGGLE"/>
+			<Var id="bedHighlight" displayName="rsense_bedsHighlight" displayType="OPTIONS">
+				<OptionsArray>
+					<Option id="0" displayName="rsense_highlight_Never"><Entry varId="bedHighlight" value="0"/></Option>
+					<Option id="1" displayName="rsense_highlight_WhenNotWellRested"><Entry varId="bedHighlight" value="1"/></Option>
+					<Option id="2" displayName="rsense_highlight_Always"><Entry varId="bedHighlight" value="2"/></Option>
+				</OptionsArray>
+			</Var>
 			<Var id="separator" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			
 			<Var id="herbHighlight" displayName="rsense_herbsHighlight" displayType="TOGGLE"/>

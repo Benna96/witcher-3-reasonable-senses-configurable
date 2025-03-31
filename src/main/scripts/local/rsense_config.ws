@@ -15,6 +15,7 @@ enum ERsenseOption
 	RSHO_DOOR,
 	RSHO_CORPSE,
 	RSHO_EXPLOSIVEBARREL,
+	RSHO_BED,
 }
 
 class CRsenseConfig
@@ -37,6 +38,7 @@ class CRsenseConfig
 		options.PushBack( new CRsenseDoorHighlightOption in this );
 		options.PushBack( new CRsenseCorpseHighlightOption in this );
 		options.PushBack( new CRsenseExplosiveBarrelHighlightOption in this );
+		options.PushBack( new CRsenseBedHighlightOption in this );
 		for( i = 0; i < options.Size(); i += 1 )
 		{
 			options[ i ].Init();

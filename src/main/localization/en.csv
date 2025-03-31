@@ -34,6 +34,7 @@
 2113377040||option_rsense_signpostsHighlight|Highlight signposts
 2113377041||option_rsense_noticeboardsHighlight|Highlight noticeboards
 2113377042||option_rsense_workbenchesAndGrindstonesHighlight|Highlight workbenches & grindstones
+2113377043||option_rsense_bedsHighlight|Highlight beds
 ;
 2113377050||option_rsense_herbsHighlight|Highlight herbs
 2113377051||option_rsense_beehivesHighlight|Highlight beehives
@@ -45,4 +46,5 @@
 2113377060||preset_value_rsense_highlight_Never|Never
 2113377061||preset_value_rsense_highlight_UnexaminedOnly|Only when unexamined
 2113377062||preset_value_rsense_highlight_Always|Always
+2113377063||preset_value_rsense_highlight_WhenNotWellRested|When not well rested
 ;-------------------------------------------------------------------------------
