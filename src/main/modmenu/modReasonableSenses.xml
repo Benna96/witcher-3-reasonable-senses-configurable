@@ -13,6 +13,7 @@
 				<Entry varId="noticeboardHighlight" value="true"/>
 				<Entry varId="buffStationHighlight" value="true"/>
 				<Entry varId="bedHighlight" value="1"/>
+				<Entry varId="bookshelfHighlight" value="true"/>
 				
 				<Entry varId="herbHighlight" value="false"/>
 				<Entry varId="beehiveHighlight" value="true"/>
@@ -30,6 +31,7 @@
 				<Entry varId="noticeboardHighlight" value="false"/>
 				<Entry varId="buffStationHighlight" value="false"/>
 				<Entry varId="bedHighlight" value="0"/>
+				<Entry varId="bookshelfHighlight" value="false"/>
 				
 				<Entry varId="herbHighlight" value="false"/>
 				<Entry varId="beehiveHighlight" value="false"/>
@@ -47,6 +49,7 @@
 				<Entry varId="noticeboardHighlight" value="true"/>
 				<Entry varId="buffStationHighlight" value="true"/>
 				<Entry varId="bedHighlight" value="2"/>
+				<Entry varId="bookshelfHighlight" value="true"/>
 
 				<Entry varId="herbHighlight" value="true"/>
 				<Entry varId="beehiveHighlight" value="true"/>
@@ -78,6 +81,7 @@
 					<Option id="2" displayName="rsense_highlight_Always"><Entry varId="bedHighlight" value="2"/></Option>
 				</OptionsArray>
 			</Var>
+			<Var id="bookshelfHighlight" displayName="rsense_bookshelvesHighlight" displayType="TOGGLE"/>
 			<Var id="separator" displayName="" displayType="SUBTLE_SEPARATOR"/>
 			
 			<Var id="herbHighlight" displayName="rsense_herbsHighlight" displayType="TOGGLE"/>
