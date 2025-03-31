@@ -104,3 +104,20 @@ private var rsense_queueBedHighlightUpdate : bool;
 		options[RSHO_BED].Apply();
 	}
 }
+
+// Bugfix for vanilla bug of bed highlight disappearing after using, see GH-12
+// CRITICAL: Supposed to be W3WitcherBedStateWakeUp, but that throws an error;
+// Will need an update once that bug is fixed!
+@wrapMethod( WakeUp ) function OnEnterState( prevStateName : name )
+{
+	var returnVal : bool;
+
+	returnVal = wrappedMethod( prevStateName );
+
+	if( (W3WitcherBed)parent )
+	{
+		parent.SetFocusModeVisibility( parent.GetFocusModeVisibility(),, true );
+	}
+
+	return returnVal;
+}
