@@ -15,7 +15,7 @@ class CRsenseDoorHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( W3Door ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_DOOR;

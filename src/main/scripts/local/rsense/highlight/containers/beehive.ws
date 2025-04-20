@@ -12,7 +12,7 @@ class CRsenseBeehiveHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( CBeehiveEntity ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_BEEHIVE;

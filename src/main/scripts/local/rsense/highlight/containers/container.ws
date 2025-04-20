@@ -4,17 +4,16 @@ class CRsenseContainerHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'containerHighlight';
 
-	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
+	protected final /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
 		return (W3Container)entity;
 	}
 }
 
-/* ------------------------------ Option getter ----------------------------- */
+/* ------------------------------ Option access ----------------------------- */
 
-// Used in _entities
-// Override in supported container classes
-@addMethod( W3Container ) protected /* override */ function GetHighlightOptionIndex() : int
+// Override in specifically supported container classes
+@addMethod( W3Container ) /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_CONTAINER;
 }

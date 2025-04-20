@@ -12,7 +12,7 @@ class CRsenseSignpostHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( W3FastTravelEntity ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_SIGNPOST;
@@ -20,7 +20,7 @@ class CRsenseSignpostHighlightOption extends IRsenseHighlightOption
 
 /* -------------------------- Registration & bugfix ------------------------- */
 
-// Bugfix only, rest is done in _entities
+// Bugfix only, rest is handled by shared highlight functionality
 @wrapMethod( W3FastTravelEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
 	var returnVal : bool;

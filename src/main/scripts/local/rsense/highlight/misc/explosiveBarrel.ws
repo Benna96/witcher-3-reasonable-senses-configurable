@@ -12,7 +12,7 @@ class CRsenseExplosiveBarrelHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( COilBarrelEntity ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_EXPLOSIVEBARREL;
@@ -20,13 +20,12 @@ class CRsenseExplosiveBarrelHighlightOption extends IRsenseHighlightOption
 
 /* -------------------------- Visibility injection -------------------------- */
 
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addMethod( COilBarrelEntity ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
+@addMethod( COilBarrelEntity ) final /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
-	focusModeVisibility = Rsense_CacheAndModVisibility( focusModeVisibility );
+	focusModeVisibility = SaveAndModVisibility( focusModeVisibility );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
-@addMethod( COilBarrelEntity ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
+@addMethod( COilBarrelEntity ) final /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
 {
-	return Rsense_GetCachedOrActualVisibility( super.GetFocusModeVisibility() );
+	return GetNonModdedVisibility( super.GetFocusModeVisibility() );
 }

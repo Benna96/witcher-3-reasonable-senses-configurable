@@ -1,14 +1,14 @@
-/* ------------------- Shared map pin entity functionality ------------------ */
-/*                         To reduce code duplication                         */
+/*                   | Shared map pin entity functionality |                  */
+/*                   |_____________________________________|                  */
 
-// Don't override in supported classes
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addMethod( CR4MapPinEntity ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
+/* -------------------------- Visibility injection -------------------------- */
+
+@addMethod( CR4MapPinEntity ) final /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
-	focusModeVisibility = Rsense_CacheAndModVisibility( focusModeVisibility );
+	focusModeVisibility = SaveAndModVisibility( focusModeVisibility );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
-@addMethod( CR4MapPinEntity ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
+@addMethod( CR4MapPinEntity ) final /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
 {
-	return Rsense_GetCachedOrActualVisibility( super.GetFocusModeVisibility() );
+	return GetNonModdedVisibility( super.GetFocusModeVisibility() );
 }

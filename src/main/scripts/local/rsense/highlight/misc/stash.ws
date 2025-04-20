@@ -12,7 +12,7 @@ class CRsenseStashHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( W3Stash ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_STASH;
@@ -20,14 +20,10 @@ class CRsenseStashHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Registration ------------------------------ */
 
-// Usually done in _entities, but stashes don't call super.OnSpawned
+// Duplicate, stashes don't call super
 // In fact, stashes don't define OnSpawned at all, use InteractiveEntity instead
 // Put this in its own class if I add more InteractiveEntity classes
 @wrapMethod( CInteractiveEntity ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	var returnVal : bool;
-
-	returnVal = wrappedMethod( spawnData );
-	GetHighlightOption().RegisterEntity( this );
-	return returnVal;
+	return OnSpawned_HighlightHook( wrappedMethod( spawnData ) );
 }

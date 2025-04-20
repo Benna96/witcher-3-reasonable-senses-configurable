@@ -14,7 +14,7 @@ class CRsenseBuffStationHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( W3ItemRepairObject ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_BUFFSTATION;
@@ -22,12 +22,8 @@ class CRsenseBuffStationHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Registration ------------------------------ */
 
-// Usually done in _entities, but buff stations don't call super.OnSpawned
+// Duplicate, buff stations don't call super
 @wrapMethod( W3ItemRepairObject ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	var returnVal : bool;
-
-	returnVal = wrappedMethod( spawnData );
-	GetHighlightOption().RegisterEntity( this );
-	return returnVal;
+	return OnSpawned_HighlightHook( wrappedMethod( spawnData ) );
 }

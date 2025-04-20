@@ -12,7 +12,7 @@ class CRsenseClueHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( W3MonsterClue ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_CLUE;
@@ -20,12 +20,8 @@ class CRsenseClueHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Registration ------------------------------ */
 
-// Usually done in _entities, but clues don't call super.OnSpawned
+// Duplicate, clues don't call super
 @wrapMethod( W3MonsterClue ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	var returnVal : bool;
-
-	returnVal = wrappedMethod( spawnData );
-	GetHighlightOption().RegisterEntity( this );
-	return returnVal;
+	return OnSpawned_HighlightHook( wrappedMethod( spawnData ) );
 }

@@ -26,7 +26,7 @@ class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( W3Herb ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_HERB;
@@ -34,14 +34,10 @@ class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Registration ------------------------------ */
 
-// Usually done in _entities, but herbs don't call super.OnSpawned
+// Duplicate, herbs don't call super
 @wrapMethod( W3Herb ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	var returnVal : bool;
-
-	returnVal = wrappedMethod( spawnData );
-	GetHighlightOption().RegisterEntity( this );
-	return returnVal;
+	return OnSpawned_HighlightHook( wrappedMethod( spawnData ) );
 }
 
 /* -------------------------- Visibility injection -------------------------- */

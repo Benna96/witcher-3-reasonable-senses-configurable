@@ -12,7 +12,7 @@ class CRsenseCorpseHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Option getter ----------------------------- */
 
-// Used in _entities
+// Used for highlight functionality
 @addMethod( W3ActorRemains ) protected /* override */ function GetHighlightOptionIndex() : int
 {
 	return RSHO_CORPSE;

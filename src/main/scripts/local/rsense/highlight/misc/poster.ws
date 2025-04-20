@@ -19,25 +19,20 @@ class CRsensePosterHighlightOption extends IRsenseHighlightOption
 
 /* ------------------------------ Registration ------------------------------ */
 
-// Usually done in _entities, but posters don't call super.OnSpawned
+// Duplicate, posters don't call super
 @wrapMethod( W3Poster ) function OnSpawned( spawnData : SEntitySpawnData )
 {
-	var returnVal : bool;
-
-	returnVal = wrappedMethod( spawnData );
-	GetHighlightOption().RegisterEntity( this );
-	return returnVal;
+	return OnSpawned_HighlightHook( wrappedMethod( spawnData ) );
 }
 
 /* -------------------------- Visibility injection -------------------------- */
 
-// Depends on gamePlayEntity.ws making FocusModeVisibility funcs overrideable
-@addMethod( W3Poster ) /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
+@addMethod( W3Poster ) final /* override */ function SetFocusModeVisibility( focusModeVisibility : EFocusModeVisibility, optional persistent : bool, optional force : bool )
 {
-	focusModeVisibility = Rsense_CacheAndModVisibility( focusModeVisibility );
+	focusModeVisibility = SaveAndModVisibility( focusModeVisibility );
 	super.SetFocusModeVisibility( focusModeVisibility, persistent, force );
 }
-@addMethod( W3Poster ) /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
+@addMethod( W3Poster ) final /* override */ function GetFocusModeVisibility() : EFocusModeVisibility
 {
-	return Rsense_GetCachedOrActualVisibility( super.GetFocusModeVisibility() );
+	return GetNonModdedVisibility( super.GetFocusModeVisibility() );
 }
