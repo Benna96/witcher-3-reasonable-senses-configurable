@@ -1,4 +1,4 @@
-/* ----------------------- Base class for highlight options ---------------------- */
+/* ------------------------------ Option class ------------------------------ */
 
 abstract class IRsenseHighlightOption extends IRsenseOption
 {
@@ -9,8 +9,6 @@ abstract class IRsenseHighlightOption extends IRsenseOption
 
 	protected /* override */ function OnValueChanged( newValue : string )
 	{
-		var option : string;
-
 		allowedVisibilities = FMV_None;
 
 		if( xmlType == "TOGGLE" )
@@ -24,12 +22,11 @@ abstract class IRsenseHighlightOption extends IRsenseOption
 
 		else if( xmlType == "OPTIONS" )
 		{
-			option = config.GetVarOption( xmlGroup, xmlId, (int)newValue );
-			if( option == "rsense_highlight_UnexaminedOnly" || option == "rsense_highlight_Always" )
+			if( newValue == "rsense_highlight_UnexaminedOnly" || newValue == "rsense_highlight_Always" )
 			{
 				allowedVisibilities |= FMV_Clue;
 			}
-			if( option == "rsense_highlight_Always" )
+			if( newValue == "rsense_highlight_Always" )
 			{
 				allowedVisibilities |= FMV_Interactive;
 			}

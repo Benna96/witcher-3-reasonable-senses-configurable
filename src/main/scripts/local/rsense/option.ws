@@ -17,16 +17,38 @@ abstract class IRsenseOption
 		config = theGame.GetInGameConfigWrapper();
 		xmlType = config.GetVarDisplayType( xmlGroup, xmlId );
 
-		currentValue = config.GetVarValue( xmlGroup, xmlId );
-		OnValueChanged(currentValue);
+		UpdateValueFromConfig();
 	}
 
 	public final function Apply()
 	{
-		currentValue = config.GetVarValue( xmlGroup, xmlId );
-		OnValueChanged(currentValue);
+		UpdateValueFromConfig();
 
 		Apply_Impl();
+	}
+
+	private function UpdateValueFromConfig()
+	{
+		var configValue : string;
+
+		configValue = config.GetVarValue( xmlGroup, xmlId );
+
+		switch( xmlType )
+		{
+			case "TOGGLE":
+				currentValue = configValue;
+				break;
+			
+			case "OPTIONS":
+				currentValue = config.GetVarOption( xmlGroup, xmlId, (int)configValue );
+				break;
+			
+			default:
+				LogChannel( 'ReasonableSenses', ToString() + ": Unsupported xmlType " + xmlType );
+				return;
+		}
+
+		OnValueChanged( currentValue );
 	}
 
 	protected function OnValueChanged( newValue : string ) {}
