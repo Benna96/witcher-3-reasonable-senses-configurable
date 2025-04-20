@@ -13,8 +13,6 @@ class CRsenseBedHighlightOption extends IRsenseHighlightOption
 
 		if( newValue == "rsense_highlight_WhenNotWellRested" )
 		{
-			allowedVisibilities |= FMV_Clue;
-			allowedVisibilities |= FMV_Interactive;
 			takeBuffIntoAccount = true;
 		}
 		else
@@ -23,7 +21,7 @@ class CRsenseBedHighlightOption extends IRsenseHighlightOption
 		}
 	}
 
-	public /* override */ function ModVisibility( focusModeVisibility : EFocusModeVisibility ) : EFocusModeVisibility
+	public /* override */ function ModVisibility( entity : CGameplayEntity, focusModeVisibility : EFocusModeVisibility ) : EFocusModeVisibility
 	{
 		if( takeBuffIntoAccount && thePlayer.HasBuff( EET_WellRested ) )
 		{
@@ -31,7 +29,7 @@ class CRsenseBedHighlightOption extends IRsenseHighlightOption
 		}
 		else
 		{
-			return super.ModVisibility( focusModeVisibility );
+			return super.ModVisibility( entity, focusModeVisibility );
 		}
 	}
 

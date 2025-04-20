@@ -4,31 +4,25 @@ abstract class IRsenseHighlightOption extends IRsenseOption
 {
 	default xmlGroup = 'rsenseHighlight';
 
-	public var allowedVisibilities : int; // Flag version of EFocusModeVisibility, fmv has so few values that they work as flags as is
+	public var shouldDisableHighlight : bool;
 	protected var entities : array< CGameplayEntity >;
 
 	protected /* override */ function OnValueChanged( newValue : string )
 	{
-		allowedVisibilities = FMV_None;
-
 		if( xmlType == "TOGGLE" )
 		{
-			allowedVisibilities |= FMV_Clue;
-			if( newValue )
-			{
-				allowedVisibilities |= FMV_Interactive;
-			}
+			shouldDisableHighlight = !((bool)newValue);
 		}
 
 		else if( xmlType == "OPTIONS" )
 		{
-			if( newValue == "rsense_highlight_UnexaminedOnly" || newValue == "rsense_highlight_Always" )
+			if( newValue == "rsense_highlight_Never" )
 			{
-				allowedVisibilities |= FMV_Clue;
+				shouldDisableHighlight = true;
 			}
-			if( newValue == "rsense_highlight_Always" )
+			else
 			{
-				allowedVisibilities |= FMV_Interactive;
+				shouldDisableHighlight = false;
 			}
 		}
 
@@ -66,15 +60,15 @@ abstract class IRsenseHighlightOption extends IRsenseOption
 		entity.SetFocusModeVisibility( entity.GetFocusModeVisibility(),, true );
 	}
 
-	public function ModVisibility( focusModeVisibility : EFocusModeVisibility ) : EFocusModeVisibility
+	public function ModVisibility( entity : CGameplayEntity, focusModeVisibility : EFocusModeVisibility ) : EFocusModeVisibility
 	{
-		if( focusModeVisibility & allowedVisibilities )
+		if( shouldDisableHighlight )
 		{
-			return focusModeVisibility;
+			return FMV_None;
 		}
 		else
 		{
-			return FMV_None;
+			return focusModeVisibility;
 		}
 	}
 

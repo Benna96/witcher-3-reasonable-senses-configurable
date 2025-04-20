@@ -51,7 +51,7 @@
 	option = GetHighlightOption();
 	if( option )
 	{
-		visibility = option.ModVisibility( visibility );
+		visibility = option.ModVisibility( this, visibility );
 	}
 
 	return visibility;

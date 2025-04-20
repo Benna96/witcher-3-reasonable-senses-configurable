@@ -53,7 +53,7 @@ class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 	cachedEntryName = entryName;
 	herb = (W3Herb)GetEntity();
 
-	if( entryName == 'full' && herb && !RSense_HasFlag( herb.GetHighlightOption().allowedVisibilities, FMV_Interactive ) )
+	if( entryName == 'full' && herb && herb.GetHighlightOption().shouldDisableHighlight )
 	{
 		entryName = 'full_nohighlight';
 	}
