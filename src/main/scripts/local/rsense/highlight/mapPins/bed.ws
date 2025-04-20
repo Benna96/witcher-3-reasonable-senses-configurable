@@ -9,13 +9,9 @@ class CRsenseBedHighlightOption extends IRsenseHighlightOption
 
 	protected /* override */ function OnValueChanged( newValue : string )
 	{
-		var option : string;
-
 		super.OnValueChanged( newValue );
 
-		// Assume xmlType is OPTIONS
-		option = config.GetVarOption( xmlGroup, xmlId, (int)newValue );
-		if( option == "rsense_highlight_WhenNotWellRested" )
+		if( newValue == "rsense_highlight_WhenNotWellRested" )
 		{
 			allowedVisibilities |= FMV_Clue;
 			allowedVisibilities |= FMV_Interactive;
