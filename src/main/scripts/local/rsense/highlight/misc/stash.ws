@@ -3,6 +3,7 @@
 class CRsenseStashHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'stashHighlight';
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

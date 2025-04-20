@@ -6,6 +6,7 @@
 class CRsenseDoorHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'doorHighlight';
+	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

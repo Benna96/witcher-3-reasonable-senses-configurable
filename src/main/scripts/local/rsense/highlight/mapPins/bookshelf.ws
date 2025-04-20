@@ -3,6 +3,7 @@
 class CRsenseBookshelfHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'bookshelfHighlight';
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

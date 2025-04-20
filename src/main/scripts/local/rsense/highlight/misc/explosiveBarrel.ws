@@ -3,6 +3,7 @@
 class CRsenseExplosiveBarrelHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'explosiveBarrelHighlight';
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

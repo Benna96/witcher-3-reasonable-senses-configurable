@@ -3,6 +3,7 @@
 class CRsenseContainerHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'containerHighlight';
+	default defaultValue = "false";
 
 	protected final /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

@@ -3,6 +3,7 @@
 class CRsenseCorpseHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'corpseHighlight';
+	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

@@ -4,6 +4,7 @@ abstract class IRsenseOption
 {
 	public const var xmlGroup : name;
 	public const var xmlId : name;
+	protected const var defaultValue : string;
 
 	protected var config : CInGameConfigWrapper;
 	protected var xmlType : string;
@@ -33,22 +34,74 @@ abstract class IRsenseOption
 
 		configValue = config.GetVarValue( xmlGroup, xmlId );
 
-		switch( xmlType )
+		if( IsMissingValue( configValue ))
 		{
-			case "TOGGLE":
-				currentValue = configValue;
-				break;
-			
-			case "OPTIONS":
-				currentValue = config.GetVarOption( xmlGroup, xmlId, (int)configValue );
-				break;
-			
-			default:
-				LogChannel( 'ReasonableSenses', ToString() + ": Unsupported xmlType " + xmlType );
+			config.SetVarValue( xmlGroup, xmlId, TranslateIntoConfigValue( defaultValue ) );
+			currentValue = defaultValue;
+		}
+
+		else
+		{
+			currentValue = TranslateFromConfigValue( configValue );
+			if( currentValue == "ERROR" )
 				return;
 		}
 
+		LogChannel( 'ReasonableSenses', ToString() + ": value is " + currentValue + ", config value: " + configValue );
+
 		OnValueChanged( currentValue );
+	}
+
+	private function IsMissingValue( value : string ) : bool
+	{
+		if( xmlType == "TOGGLE" && value == "" )
+			return true;
+		
+		else if( xmlType == "OPTIONS" && value == "-1" )
+			return true;
+		
+		else
+			return false;
+	}
+
+	private function TranslateFromConfigValue( configValue : string ) : string
+	{
+		switch( xmlType )
+		{
+			case "TOGGLE":
+				return configValue;
+			
+			case "OPTIONS":
+				return config.GetVarOption( xmlGroup, xmlId, (int)configValue );
+			
+			default:
+				LogChannel( 'ReasonableSenses', ToString() + ": Unsupported xmlType " + xmlType );
+				return "ERROR";
+		}
+	}
+
+	private function TranslateIntoConfigValue( value : string ) : string
+	{
+		var i : int;
+
+		switch( xmlType )
+		{
+			case "TOGGLE":
+				return value;
+			
+			case "OPTIONS":
+				for( i = 0; i < config.GetVarOptionsNum( xmlGroup, xmlId ); i += 1 )
+				{
+					if( config.GetVarOption( xmlGroup, xmlId, i ) == value )
+						return i;
+				}
+				LogChannel( 'ReasonableSenses', ToString() + ": Failed to translate value '" + value + "' into config value." );
+				return "ERROR";
+			
+			default:
+				LogChannel( 'ReasonableSenses', ToString() + ": Unsupported xmlType " + xmlType );
+				return "ERROR";
+		}
 	}
 
 	protected function OnValueChanged( newValue : string ) {}

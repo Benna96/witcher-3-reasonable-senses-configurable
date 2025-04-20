@@ -3,6 +3,7 @@
 class CRsenseSignpostHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'signpostHighlight';
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

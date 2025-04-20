@@ -3,6 +3,7 @@
 class CRsenseBeehiveHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'beehiveHighlight';
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

@@ -3,6 +3,7 @@
 class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'herbHighlight';
+	default defaultValue = "false";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

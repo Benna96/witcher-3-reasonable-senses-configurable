@@ -5,6 +5,7 @@
 class CRsenseBuffStationHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'buffStationHighlight';
+	default defaultValue = "true";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{

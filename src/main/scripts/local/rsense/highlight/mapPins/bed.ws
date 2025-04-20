@@ -3,6 +3,7 @@
 class CRsenseBedHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'bedHighlight';
+	default defaultValue = "rsense_highlight_WhenNotWellRested";
 
 	private var takeBuffIntoAccount : bool;
 

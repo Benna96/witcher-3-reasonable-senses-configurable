@@ -3,6 +3,7 @@
 class CRsenseClueHighlightOption extends IRsenseHighlightOption
 {
 	default xmlId = 'clueHighlight';
+	default defaultValue = "rsense_highlight_UnexaminedOnly";
 
 	protected /* override */ function IsSupportedEntity( entity : CGameplayEntity ) : bool
 	{
