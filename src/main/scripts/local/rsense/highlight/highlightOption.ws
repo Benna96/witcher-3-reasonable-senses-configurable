@@ -54,7 +54,7 @@ abstract class IRsenseHighlightOption extends IRsenseOption
 		}
 	}
 
-	protected function ApplyToEntity( entity : CGameplayEntity )
+	public function ApplyToEntity( entity : CGameplayEntity )
 	{
 		// Force true for full control. False is unreliable, with house deco in particular.
 		entity.SetFocusModeVisibility( entity.GetFocusModeVisibility(),, true );

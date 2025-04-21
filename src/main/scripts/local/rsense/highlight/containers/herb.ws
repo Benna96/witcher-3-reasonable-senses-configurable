@@ -11,7 +11,7 @@ class CRsenseHerbHighlightOption extends IRsenseHighlightOption
 	}
 
 	// Most herbs' visibility depends on foliageComponent
-	protected /* override */ function ApplyToEntity( entity : CGameplayEntity )
+	public /* override */ function ApplyToEntity( entity : CGameplayEntity )
 	{
 		var foliageComponent : CSwitchableFoliageComponent;
 
