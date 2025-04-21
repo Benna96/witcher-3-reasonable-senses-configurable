@@ -19,6 +19,8 @@
 				<Entry varId="beehiveHighlight" value="true"/>
 				<Entry varId="corpseHighlight" value="false"/>
 				<Entry varId="containerHighlight" value="false"/>
+
+				<Entry varId="trophyStandHighlight" value="1"/>
 			</Preset>
 			<Preset id="1" displayName="rsense_minimalist">
 				<Entry varId="doorHighlight" value="false"/>
@@ -37,6 +39,8 @@
 				<Entry varId="beehiveHighlight" value="false"/>
 				<Entry varId="corpseHighlight" value="false"/>
 				<Entry varId="containerHighlight" value="false"/>
+
+				<Entry varId="trophyStandHighlight" value="0"/>
 			</Preset>
 			<Preset id="2" displayName="rsense_vanilla">
 				<Entry varId="doorHighlight" value="true"/>
@@ -55,6 +59,9 @@
 				<Entry varId="beehiveHighlight" value="true"/>
 				<Entry varId="corpseHighlight" value="true"/>
 				<Entry varId="containerHighlight" value="true"/>
+
+				<!-- Most house decorations are technically on, but visibly off, engine side stuff I guess -->
+				<Entry varId="trophyStandHighlight" value="2"/> <!-- Most trophy stands do get highlighted -->
 			</Preset>
 		</PresetsArray>
 		<VisibleVars>
@@ -88,6 +95,15 @@
 			<Var id="beehiveHighlight" displayName="rsense_beehivesHighlight" displayType="TOGGLE"/>
 			<Var id="corpseHighlight" displayName="rsense_corpsesHighlight" displayType="TOGGLE"/>
 			<Var id="containerHighlight" displayName="rsense_otherContainersHighlight" displayType="TOGGLE"/>
+			<Var id="separator" displayName="" displayType="SUBTLE_SEPARATOR"/>
+
+			<Var id="trophyStandHighlight" displayName="rsense_trophyStandsHighlight" displayType="OPTIONS">
+				<OptionsArray>
+					<Option id="0" displayName="rsense_highlight_Never"><Entry varId="trophyStandHighlight" value="0"/></Option>
+					<Option id="1" displayName="rsense_highlight_WhenEmpty"><Entry varId="trophyStandHighlight" value="1"/></Option>
+					<Option id="2" displayName="rsense_highlight_Always"><Entry varId="trophyStandHighlight" value="2"/></Option>
+				</OptionsArray>
+			</Var>
 		</VisibleVars>
 	</Group>
 </UserConfig>

@@ -41,6 +41,8 @@
 2113377051||option_rsense_beehivesHighlight|Highlight beehives
 2113377052||option_rsense_otherContainersHighlight|Highlight other containers
 2113377053||option_rsense_corpsesHighlight|Highlight corpses
+;
+2113377070||option_rsense_trophyStandsHighlight|Highlight trophy racks
 ;-------------------------------------------------------------------------------
 ;
 ;----------------------------- Option array items ------------------------------
@@ -48,4 +50,5 @@
 2113377061||preset_value_rsense_highlight_UnexaminedOnly|Only when unexamined
 2113377062||preset_value_rsense_highlight_Always|Always
 2113377063||preset_value_rsense_highlight_WhenNotWellRested|When not well rested
+2113377064||preset_value_rsense_highlight_WhenEmpty|When empty
 ;-------------------------------------------------------------------------------

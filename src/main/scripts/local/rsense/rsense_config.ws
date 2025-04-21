@@ -17,6 +17,7 @@ enum ERsenseOption
 	RSHO_EXPLOSIVEBARREL,
 	RSHO_BED,
 	RSHO_BOOKSHELF,
+	RSHO_TROPHYSTAND,
 }
 
 class CRsenseConfig
@@ -41,6 +42,7 @@ class CRsenseConfig
 		options.PushBack( new CRsenseExplosiveBarrelHighlightOption in this );
 		options.PushBack( new CRsenseBedHighlightOption in this );
 		options.PushBack( new CRsenseBookshelfHighlightOption in this );
+		options.PushBack( new CRsenseTrophyRackHighlightOption in this );
 		for( i = 0; i < options.Size(); i += 1 )
 		{
 			options[ i ].Init();
